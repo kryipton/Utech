@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="images/favicon.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="We are Offshore software development company, Website development company, Mobile app development, Ecommerce application development, IT company/companies in Jaipur INDIA, " />
+    <meta name="author" content="StartBit" />
+    <meta name="keywords" content="Web development in Jaipur, Software company in jaipur, Ecommerce solution in jaipur, Web development company in jaipur, Top Mobile App Development Company, IT company in jaipur, IT company in Vaishali nagar, Software company in vaishali nagar, TOP IT Company in jaipur, TOP IT companies in jaipur, TOP IT company in Rajasthan, TOP IT companies in Rajasthan, Team StartBit, StartBit IT Solutions" />
+    <meta property="og:image" content="../startbitsolutions.com/images/logo.png" />
+    <meta property="og:title" content="TOP Software Development Company in Jaipur" />
+    <meta property="og:description" content="StartBIT IT Solutions involved in web development, web application development, Ecommerce application development, mobile application development, hybrid application development. We work in ASP.Net, .Net framework 2005/2008/2010/2012/2015, PHP, Ruby on Rails development, iOS development, Android development, various CMS - Joomla, WordPress, Magento, OSCommerce, Drupal etc. We work with overseas clients and provide them 24*7 support to satisfy their needs." />
+  <title>StartBit IT Solutions</title>
+   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+ <!--  <link rel="stylesheet" href="css/default.css"> -->
+  <link rel="stylesheet" href="css/lightbox.min.css"><!-- light box -->
+
+  <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.css"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" /><!-- font lato css-->
+
+ <script src="../ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script src="js/lightbox-plus-jquery.min.js"></script>
+  
+    <script src="../ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="../maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+  <script src="js/isotop.js"></script>
+ 
+
+<style>
+#container {
+  margin: auto;
+}
+    
+.grid-item {
+  display: inline-block;
+  
+  margin: 5px;
+  overflow: hidden;
+  text-align: center;
+  width: 250px;
+}
+
+.isotope-pager{
+  width: 100%;
+  text-align: center;
+}
+.isotope-pager .pager{
+  margin-left: 10px;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  color: #777;
+  text-decoration: none;
+}
+
+ul.filters li{
+  display: inline-block;
+  margin-left: 10px;
+ 
+}
+ul.filters li a{
+  color: #15326c;
+  text-decoration: none;
+     border: 1px solid #FFC30B;
+  padding: 10px 15px;
+}
+    .grid-title p{
+        font-size: 14px;
+    }
+</style>
+<script>
+  
+  $(document).ready( function() {
+        $('.filters a:first').css({"background-color":'#FFC30B',"color":'white'});
+
+  var itemSelector = '.grid-item'; 
+
+  var $container = $('#container').isotope({
+    itemSelector: itemSelector,
+    masonry: {
+      columnWidth: itemSelector,
+      isFitWidth: true
+    }
+  });
+
+  //Ascending order
+  var responsiveIsotope = [
+    [480, 4],
+    [720, 6]
+  ];
+
+  var itemsPerPageDefault = 4;
+  var itemsPerPage = defineItemsPerPage();
+  var currentNumberPages = 1;
+  var currentPage = 1;
+  var currentFilter = '*';
+  var filterAtribute = 'data-filter';
+  var pageAtribute = 'data-page';
+  var pagerClass = 'isotope-pager';
+
+  function changeFilter(selector) {
+    $container.isotope({
+      filter: selector
+    });
+  }
+
+
+  function goToPage(n) {
+    currentPage = n;
+
+    var selector = itemSelector;
+      selector += ( currentFilter != '*' ) ? '['+filterAtribute+'="'+currentFilter+'"]' : '';
+      selector += '['+pageAtribute+'="'+currentPage+'"]';
+
+    changeFilter(selector);
+  }
+
+  function defineItemsPerPage() {
+    var pages = itemsPerPageDefault;
+
+    for( var i = 0; i < responsiveIsotope.length; i++ ) {
+      if( $(window).width() <= responsiveIsotope[i][0] ) {
+        pages = responsiveIsotope[i][1];
+        break;
+      }
+
+      
+
+    }
+
+    return pages;
+  }
+  
+  function setPagination() {
+
+    var SettingsPagesOnItems = function(){
+
+      var itemsLength = $container.children(itemSelector).length;
+      
+      var pages = Math.ceil(itemsLength / itemsPerPage);
+      var item = 1;
+      var page = 1;
+      var selector = itemSelector;
+     
+        selector += ( currentFilter != '*' ) ? '['+filterAtribute+'="'+currentFilter+'"]' : '';
+      
+      $container.children(selector).each(function(){
+        if( item > itemsPerPage ) {
+          page++;
+          item = 1;
+        }
+        $(this).attr(pageAtribute, page);
+        item++;
+      });
+
+      currentNumberPages = page;
+
+    }();
+
+    var CreatePagers = function() {
+
+      var $isotopePager = ( $('.'+pagerClass).length == 0 ) ? $('<div class="'+pagerClass+'"></div>') : $('.'+pagerClass);
+
+      $isotopePager.html('');
+      
+      for( var i = 0; i < currentNumberPages; i++ ) {
+        var $pager = $('<a href="javascript:void(0);" class="pager" '+pageAtribute+'="'+(i+1)+'"></a>');
+          $pager.html(i+1);
+          
+          $pager.click(function(){
+            var page = $(this).eq(0).attr(pageAtribute);
+            goToPage(page);
+          });
+
+        $pager.appendTo($isotopePager);
+      }
+
+      $container.after($isotopePager);
+
+    }();
+
+  }
+
+  setPagination();
+  goToPage(1);
+
+  //Adicionando Event de Click para as categorias
+  $('.filters a').click(function(){
+    var filter = $(this).attr(filterAtribute);
+    currentFilter = filter;
+      $('.filters a').css({"background-color":'white',"color":'#15326c'});
+      
+
+     $(this).css({"background-color":'#FFC30B',"color":'white'});
+
+
+    setPagination();
+    goToPage(1);
+
+
+  });
+
+  //Evento Responsivo
+  $(window).resize(function(){
+    itemsPerPage = defineItemsPerPage();
+    setPagination();
+    goToPage(1);
+  });
+
+  
+
+});
+  
+  </script>
+</head>
+<body>
+
+<header>
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-md navbar-dark sticky sticky-top bg-light" data-toggle="sticky-onscroll" style="background-color: #fff !important;">
+      <a class="navbar-brand logo" title="Top Software Company Jaipur India" href="index.html"><img src="../startbitsolutions.com/images/logo.png" class="img-fluid" alt="StartBit IT Solutions"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+         <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a title="Top Software Company Jaipur India" class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="about.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             About Us
+              <i class="fa fa-angle-down"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="about.html">Our Expertise</a>
+              <a class="dropdown-item" href="testimonial.html">Testimonials</a>
+              <a class="dropdown-item" href="Why_us.html">Why Us</a>
+            <a class="dropdown-item" href="company.html">Know Company</a>
+            </div>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="portfolio-3-col.html">
+              Portfolio
+            </a>
+          </li>-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="blog.html">
+              Blog
+              
+            </a>
+            
+          </li>
+              <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active-nav" href="portfolio.html">
+              Portfolio
+              </a>
+            </li>
+             <li class="dropdown menu-large nav-item" id="megamenu"> <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Services <i class="fa fa-angle-down"></i> </a>
+                <ul class="dropdown-menu megamenu">
+                  <div class="row">
+                  <li class="col-md-2 col-sm-3 dropdown-item1">
+                      <ul>
+                        <li class="dropdown-header">  <a href="web_development.html" title="Top WebApplication Development Company Jaipur INDIA">Web Development</a></li>
+                          <li><a href="net-development.html" title="Top WebApplication Development Company Jaipur INDIA">Microsoft Technologies</a>
+                          </li>
+                          <li><a href="ruby-on-rails.html" title="Top WebApplication Development Company Jaipur INDIA">Ruby on Rails</a>
+                          </li>
+                          <li><a href="php.html" title="Top WebApplication Development Company Jaipur INDIA">Php & Open Source</a>
+                          </li>
+                          <li><a href="zend-development.html" title="Top WebApplication Development Company Jaipur INDIA">Zend Framework</a>
+                          </li>
+                          <li><a href="code-igniter.html" title="Top WebApplication Development Company Jaipur INDIA">CodeIgniter Framework</a>
+                          </li>
+                             <li><a href="nodejs.html" title="Top WebApplication Development Company Jaipur INDIA">NodeJS </a>
+                          </li>
+                            <li><a href="mean-development.html" title="Top WebApplication Development Company Jaipur INDIA">MEAN Stack</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li class="col-md-2 col-sm-3 dropdown-item1">
+                      <ul>
+                          <li class="dropdown-header"><a title="eCommerce Development Company Jaipur INDIA" href="ecommerce-applications.html">Ecommerce Solutions</a></li>
+                          <li><a  title="eCommerce Development Company Jaipur INDIA" href="woocommerce.html">WooCommerce</a>
+                          </li>
+                          <li><a title="eCommerce Development Company Jaipur INDIA" href="Magento.html">Magento</a>
+                          </li>
+                          <li><a title="eCommerce Development Company Jaipur INDIA" href="shopify.html">Shopify </a>
+                          </li>
+                          <li><a title="eCommerce Development Company Jaipur INDIA" href="pretashop.html">Pretashop</a>
+                          </li>
+                          <li><a title="eCommerce Development Company Jaipur INDIA" href="bigcommerce.html">Big Commerce</a>
+                          </li>
+                          <li><a title="eCommerce Development Company Jaipur INDIA" href="oscommerce.html">OSCommerce</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li class="col-md-2 col-sm-3 dropdown-item1">
+                      <ul>
+                          <li class="dropdown-header"><a title="Top Mobile App Development Company Jaipur INDIA" href="mobile-applications.html">Mobile Applications</a></li>
+                          <li><a title="Top Mobile App Development Company Jaipur INDIA" href="android-development.html">Android Development</a>
+                          </li>
+                          <li><a title="Top Mobile App Development Company Jaipur INDIA" href="iOS-development.html">iOS/iPad Development </a>
+                          </li>
+                          <li><a title="Top Mobile App Development Company Jaipur INDIA" href="hybrid-development.html">Hybrid Development</a>
+                          </li>
+                          <li><a title="Top Mobile App Development Company Jaipur INDIA" href="ionic-development.html">Ionic App Development</a>
+                          </li>
+                           <li><a title="Top Mobile App Development Company Jaipur INDIA" href="react-native-development.html">React Development</a>
+                          </li>
+                          <li><a title="Top Mobile App Development Company Jaipur INDIA" href="phonegap-development.html">PhoneGap Development</a>
+                          </li>
+                          <li><a title="Top Mobile App Development Company Jaipur INDIA" href="xamrian-development.html">Xamarian Development </a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li class="col-md-2 col-sm-3 dropdown-item1">
+                      <ul>
+                          <li class="dropdown-header"><a title="Top Website Development Company Jaipur INDIA" href="content-management-systems.html">CMS Services</a></li>
+                          <li><a title="Top Website Development Company Jaipur INDIA" href="wordpress.html">WordPress</a>
+                          </li>
+                          <li><a title="Top Website Development Company Jaipur INDIA" href="joomla.html">Joomla</a>
+                          </li>
+                          <li><a title="Top Website Development Company Jaipur INDIA" href="drupal.html">Drupal</a>
+                          </li>
+                          <li><a title="Top Website Development Company Jaipur INDIA" href="radiant.html">Radiant</a>
+                          </li>
+                          <li><a title="Top Website Development Company Jaipur INDIA" href="sitefinity.html">Sitefinity</a>
+                          </li>
+                          <li><a  title="Top Website Development Company Jaipur INDIA" href="Magento.html">Magento</a></li>
+                      </ul>
+                  </li>
+                      <li class="col-md-2 col-sm-3 dropdown-item1">
+                      <ul>
+                        <li class="dropdown-header"> <a href="front-end-designing.html" title="Top Website Designing Company Jaipur INDIA" > FrontEnd Development</a></li>
+                        <li><a href="html-css.html" title="Top Website Designing Company Jaipur INDIA" >HTML5 & CSS3 Designing</a></li>
+                        <li><a href="responsive_design.html" title="Top Website Designing Company Jaipur INDIA" >Responsive Designing</a></li>
+                          <li><a href="angularjs.html" title="Top Website Designing Company Jaipur INDIA" >AngularJS Development</a></li>
+                          <li><a href="psd_desgining.html" title="Top Website Designing Company Jaipur INDIA" >PSD Designing</a></li>
+                      </ul>
+                  </li>
+                      <li class="col-md-2 col-sm-3 dropdown-item1">
+                      <ul>
+                        <li class="dropdown-header"> <a href="internet-marketing.html" title="Digital Marketing Services Company Jaipur INDIA"> Internet Marketing</a></li>
+                          <li><a  title="Digital Marketing Services Company Jaipur INDIA" href="Seo.html">SEO</a>
+                          </li>
+                          <li><a  title="Digital Marketing Services Company Jaipur INDIA" href="mobile-app-marketing.html">Mobile App Marketing</a>
+                          </li>
+                          <li><a  title="Digital Marketing Services Company Jaipur INDIA" href="analytics.html">App & Web Analytics</a>
+                          </li>
+                          <li><a  title="Digital Marketing Services Company Jaipur INDIA" href="digital_market.html">Digital Strategy Consulting</a>
+                          </li>
+                        
+                      </ul>
+                  </li>
+                  </div>
+                </ul>
+            </li>
+         
+              <li class="nav-item"><a class="nav-link" href="career.html">Career</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+         
+          
+        </ul>
+        
+      </div>
+    </nav>  
+    </div>
+    </header>
+<!-- header -->
+
+<!-- breadcrumb -->
+<section class="bread-crumb">
+  <div class="container-fluid">
+      <div class="row py-4">
+        <div class="col-md-6 col-sm-6">
+            <h1>Portfolio</h1>  
+        </div>
+         <div class="col-md-6 col-sm-6">
+            <ul class="list-item text-right">
+              <li><a href="index.html">Home <span><i class="fa fa-angle-right"></i></span></a></li>
+              <li><a href="#">Portfolio <span><i class="fa fa-angle-right"></i></span></a></li>
+           
+            </ul>
+        </div>
+      </div>
+  </div>
+</section>
+
+<!-- breadcrumb -->
+<!-- shuffle script -->
+
+<!-- 3 column grid -->
+<section class="page-section-y" style="border-bottom:1px solid #e6e6e6;padding-top:90px">
+  <div class="container-fluid">
+    <div class="row">
+        <div class="mb-3 w-100">
+          <ul class="filters p-0 text-center">
+             <li><a href="javascript:void(0);" data-filter="*">All</a></li>
+            <li><a href="javascript:void(0);" data-filter="HTML5 & CSS3">HTML5 & CSS3</a></li>
+            <li><a href="javascript:void(0);" data-filter="Ecommerce">Ecommerce</a></li>
+            <li><a href="javascript:void(0);" data-filter="Wordpress">Wordpress</a></li>
+              <li><a href="javascript:void(0);" data-filter="Magento">Magento</a></li>
+                   <li><a href="javascript:void(0);" data-filter="Mobile">Mobile Apps</a></li>
+<!--
+            <li><a href="javascript:void(0);" data-filter=".NET">.NET</a></li>
+            <li><a href="javascript:void(0);" data-filter="Shopify">Shopify</a></li>
+            <li><a href="javascript:void(0);" data-filter="Mobile Apps">Mobile Apps</a></li> 
+-->
+          
+          </ul>
+        </div>
+      </div>
+        <div class="isotope" id="container" style="width:1200px">
+          <div class="grid-item" data-filter="HTML5 & CSS3">
+            <div class="grid-wrapper">
+              <div class="grid-img">
+                <img src="images/portfolio/img-1.jpg" class="img-fluid" alt="Portfolio Image 1" obj.alt="obj.alt">
+                <div class="grid-img-overlay"></div>
+                <div class="grid-img-overlay-content">
+                  <a href="images/portfolio/img-1.jpg" class="example-image-link fa fa-search-plus fa-lg" data-lightbox="example-set">
+                  </a>
+                 
+                </div>
+              </div>
+              <div class="grid-title text-center py-3">
+                <h5>MLE</h5>
+                <p class="pb-1 px-2">A nicely designed and developed HTML5 based project for a Tennis Academy.</p>
+              </div>
+            </div>
+          </div>
+          <div class="grid-item" data-filter="HTML5 & CSS3">
+            <div class="grid-wrapper">
+              <div class="grid-img">
+                <img src="images/portfolio/img-2.jpg" class="img-fluid" alt="Portfolio Image 1" obj.alt="obj.alt">
+                <div class="grid-img-overlay"></div>
+                <div class="grid-img-overlay-content">
+                  <a href="images/portfolio/img-2.jpg" class="example-image-link fa fa-search-plus fa-lg" data-lightbox="example-set">
+                  </a>
+                   
+                </div>
+              </div>
+              <div class="grid-title text-center py-3">
+                <h5>Evolution Networks</h5>
+                <p class="pb-1 px-2">Resposive Static HTML5 website for Energy Savers Group</p>
+              </div>
+            </div>
+          </div>
+          <div class="grid-item" data-filter="HTML5 & CSS3">
+            <div class="grid-wrapper">
+              <div class="grid-img">
+                <img src="images/portfolio/img-3.jpg" class="img-fluid" alt="Portfolio Image 1" obj.alt="obj.alt">
+                <div class="grid-img-overlay"></div>
+                <div class="grid-img-overlay-content">
+                  <a href="images/portfolio/img-3.jpg" class="example-image-link fa fa-search-plus fa-lg" data-lightbox="example-set">
+                  </a>
+                   
+                </div>
+              </div>
+              <div class="grid-title text-center py-3">
+                <h5>Paul Ahlstorm</h5>
+                <p class="pb-1 px-2">A professional Website for the Client showing ideas for buisnesses.</p>
+              </div>
+            </div>
+          </div>
+          <div class="grid-item" data-filter="HTML5 & CSS3">
+            <div class="grid-wrapper">
+              <div class="grid-img">
+                <img src="images/portfolio/img-4.jpg" class="img-fluid" alt="Portfolio Image 1" obj.alt="obj.alt">
+                <div class="grid-img-overlay"></div>
+                <div class="grid-img-overlay-content">
+                  <a href="images/portfolio/img-4.jpg" class="example-image-link fa fa-search-plus fa-lg" data-lightbox="example-set">
+                  </a>
+                   
+                </div>
+              </div>
+              <div class="grid-title text-center py-3">
+                <h4>ComCreate</h4>
+                <p class="pb-1 px-2">Static Website showing the RTL pattern</p>
+              </div>
+            </div>
+          </div>
+        
+            
+            <div class="grid-item" data-filter="Wordpress">
+            <div class="grid-wrapper">
+              <div class="grid-img">
+                <img src="images/portfolio/Wordpress/img-1.jpg" class="img-fluid" alt="Portfolio Image 1" obj.alt="obj.alt">
+                <div class="grid-img-overlay"></div>
+                <div class="grid-img-overlay-content">
+                  <a href="images/portfolio/Wordpress/links/img-1.jpg" class="example-image-link fa fa-search-plus fa-lg" data-lightbox="example-set">
+                  </a>
+                 
+                </div>
+              </div>
+              <div class="grid-title text-center py-3">
+                <h4>Design Library</h4>
+                <p class="pb-1 px-2">Wordpress Blog sharing Kitchen designing ideas.</p>
+              </div>
+            </div>
+          </div>
+          <div class="grid-item" data-filter="Wordpress">
+            <div class="grid-wrapper">
+              <div class="grid-img">
+                <img src="images/portfolio/Wordpress/img-2.jpg" class="img-fluid" alt="Portfolio Image 1" obj.alt="obj.alt">
+                <div class="grid-img-overlay"></div>
+                <div class="grid-img-overlay-content">
+                  <a href="images/portfolio/Wordpress/links/img-2.jpg" class="example-image-link fa fa-search-plus fa-lg" data-lightbox="example-set">
+                  </a>
+                   
+                </div>
+              </div>
+              <div class="grid-title text-center py-3">
+                <h4>Kube Club</h4>
+                <p class="pb-1 px-2">Divi Theme showing the Events, Calendars &amp; Tickets. </p>
+              </div>
+            </div>
+          </div>
+          <div class="grid-item" data-filter="Wordpress">
+            <div class="grid-wrapper">
+              <div class="grid-img">
+                <img src="images/portfolio/Wordpress/img-3.jpg" class="img-fluid" alt="Portfolio Image 1" obj.alt="obj.alt">
+                <div class="grid-img-overlay"></div>
+                <div class="grid-img-overlay-content">
+                  <a href="images/portfolio/Wordpress/links/img-3.jpg" class="example-image-link fa fa-search-plus fa-lg" data-lightbox="example-set">
+                  </a>
+                   
+                </div>
+              </div>
+              <div class="grid-title text-center py-3">
+                <h4>Freedom Health</h4>
+                <p class="pb-1 px-2">WooCommerce theme showing health related products data.</p>
+              </div>
+            </div>
+          </div>
+                <div class="grid-item" data-filter="Wordpress">
+            <div class="grid-wrapper">
+              <div class="grid-img">
+                <img src="images/portfolio/Wordpress/img-4.jpg" class="img-fluid" alt="Portfolio Image 1" obj.alt="obj.alt">
+                <div class="grid-img-overlay"></div>
+                <div class="grid-img-overlay-content">
+                  <a href="images/portfolio/Wordpress/links/img-4.jpg" class="example-image-link fa fa-search-plus fa-lg" data-lightbox="example-set">
+                  </a>
+                 
+                </div>
+              </div>
+              <div class="grid-title text-center py-3">
+                <h4>SwissMedendi</h4>
+                <p class="pb-1 px-2">A pharmaceutical company giving its details via website.</p>
+              </div>
+            </div>
+          </div>  
+            <div class="grid-item" data-filter="Wordpress">
+            <div class="grid-wrapper">
+              <div class="grid-img">
+                <img src="images/portfolio/Wordpress/img-5.jpg" class="img-fluid" alt="Portfolio Image 1" obj.alt="obj.alt">
+                <div class="grid-img-overlay"></div>
+                <div class="grid-img-overlay-content">
+                  <a href="images/portfolio/Wordpress/links/img-5.jpg" class="example-image-link fa fa-search-plus fa-lg" data-lightbox="example-set">
+                  </a>
+                 
+                </div>
+              </div>
+              <div class="grid-title text-center py-3">
+                <h4>Song Bird Tree</h4>
+                <p class="pb-1 px-2">Details of many Vocal Programs to improve singing Skills.</p>
+              </div>
+            </div>
+          </div>   
+            <div class="grid-item" data-filter="Wordpress">
+            <div class="grid-wrapper">
+              <div class="grid-img">
+                <img src="images/portfolio/Wordpress/img-7.jpg" class="img-fluid" alt="Portfolio Image 1" obj.alt="obj.alt">
+                <div class="grid-img-overlay"></div>
+                <div class="grid-img-overlay-content">
+                  <a href="images/portfolio/Wordpress/links/img-7.jpg" class="example-image-link fa fa-search-plus fa-lg" data-lightbox="example-set">
+                  </a>
+                 
+                </div>
+              </div>
+              <div class="grid-title text-center py-3">
+                <h4>Dilto</h4>
+                  <p class="pb-1 px-2">Wordpress based website for celebrities to post their daily life activities.</p>
+              </div>
+            </div>
+          </div>
+              <div class="grid-item" data-filter="Wordpress">
+            <div class="grid-wrapper">
+              <div class="grid-img">
+                <img src="images/portfolio/Wordpress/img-8.jpg" class="img-fluid" alt="Portfolio Image 1" obj.alt="obj.alt">
+                <div class="grid-img-overlay"></div>
+                <div class="grid-img-overlay-content">
+                  <a href="images/portfolio/Wordpress/links/img-8.jpg" class="example-image-link fa fa-search-plus fa-lg" data-lightbox="example-set">
+                  </a>
+                 
+                </div>
+              </div>
+              <div class="grid-title text-center py-3">
+                <h4>Crowd Care</h4>
+                  <p class="pb-1 px-2">A Wordpress based customized project having Buddypress, BBPress Forums, Feeds with "Enfold Theme" integrated.
+</p>
+              </div>
+            </div>
+          </div>
+              <div class="grid-item" data-filter="Wordpress">
+            <div class="grid-wrapper">
+              <div class="grid-img">
+                <img src="images/portfolio/Wordpress/img-9.jpg" class="img-fluid" alt="Portfolio Image 1" obj.alt="obj.alt">
+                <div class="grid-img-overlay"></div>
+                <div class="grid-img-overlay-content">
+                  <a href="images/portfolio/Wordpress/links/img-9.jpg" class="example-image-link fa fa-search-plus fa-lg" data-lightbox="example-set">
+                  </a>
+                 
+                </div>
+              </div>
+              <div class="grid-title text-center py-3">
+                <h4>Autumn Ridge Church</h4>
+                  <p class="pb-1 px-2">
+						 A Wordpress based customized project having Buddypress, BBPress Forums, Feeds with "Enfold Theme" integrated.
+					
+</p>
+              </div>
+            </div>
+          </div>
+       
+       
+          <div class="grid-item" data-filter="Ecommerce">
+            <div class="grid-wrapper">
+              <div class="grid-img">
+                <img src="images/portfolio/Ecommerce/img-1.jpg" class="img-fluid" alt="Portfolio Image 1" obj.alt="obj.alt">
+                <div class="grid-img-overlay"></div>
+                <div class="grid-img-overlay-content">
+                  <a href="images/portfolio/Ecommerce/links/img-1.jpg" class="example-image-link fa fa-search-plus fa-lg" data-lightbox="example-set">
+                  </a>
+                   
+                </div>
+              </div>
+              <div class="grid-title text-center py-3">
+                <h4>Greendesk</h4>
+                <p class="pb-1 px-2">Online store for organic fruit &amp; vegetables order system directly from Farms.</p>
+              </div>
+            </div>
+          </div>
+          <div class="grid-item" data-filter="Ecommerce">
+            <div class="grid-wrapper">
+              <div class="grid-img">
+                <img src="images/portfolio/Ecommerce/img-2.jpg" class="img-fluid" alt="Portfolio Image 1" obj.alt="obj.alt">
+                <div class="grid-img-overlay"></div>
+                <div class="grid-img-overlay-content">
+                  <a href="images/portfolio/Ecommerce/links/img-2.jpg" class="example-image-link fa fa-search-plus fa-lg" data-lightbox="example-set">
+                  </a>
+                   
+                </div>
+              </div>
+              <div class="grid-title text-center py-3">
+                <h4>Jewels & Deals</h4>
+                <p class="pb-1 px-2">It's Magento based online store to show deals related to Jewellery and birth stones from an INDIA based Jewellery house.</p>
+              </div>
+            </div>
+          </div>
+          <div class="grid-item" data-filter="Ecommerce">
+            <div class="grid-wrapper">
+              <div class="grid-img">
+                <img src="images/portfolio/Ecommerce/img-3.jpg" class="img-fluid" alt="Portfolio Image 1" obj.alt="obj.alt">
+                <div class="grid-img-overlay"></div>
+                <div class="grid-img-overlay-content">
+                  <a href="images/portfolio/Ecommerce/links/img-3.jpg" class="example-image-link fa fa-search-plus fa-lg" data-lightbox="example-set">
+                  </a>
+                   
+                </div>
+              </div>
+              <div class="grid-title text-center py-3">
+                <h4>Katie Peckett</h4>
+                <p class="pb-1 px-2">Magento based online shop to order flowers, designer bouquets and flowers for weddings and funerals.</p>
+              </div>
+            </div>
+          </div>
+          <div class="grid-item" data-filter="Ecommerce">
+            <div class="grid-wrapper">
+              <div class="grid-img">
+                <img src="images/portfolio/Ecommerce/img-4.jpg" class="img-fluid" alt="Portfolio Image 1" obj.alt="obj.alt">
+                <div class="grid-img-overlay"></div>
+                <div class="grid-img-overlay-content">
+                  <a href="images/portfolio/Ecommerce/links/img-4.jpg" class="example-image-link fa fa-search-plus fa-lg" data-lightbox="example-set">
+                  </a>
+                   
+                </div>
+              </div>
+              <div class="grid-title text-center py-3">
+                <h4>Lipogaine</h4>
+                <p class="pb-1 px-2">WooCommerce based Wordpress Store for selling Intensive treatment products, major payment gateways supported.</p>
+              </div>
+            </div>
+          </div>
+          <div class="grid-item" data-filter="Ecommerce">
+            <div class="grid-wrapper">
+              <div class="grid-img">
+                <img src="images/portfolio/Ecommerce/img-5.jpg" class="img-fluid" alt="Portfolio Image 1" obj.alt="obj.alt">
+                <div class="grid-img-overlay"></div>
+                <div class="grid-img-overlay-content">
+                  <a href="images/portfolio/Ecommerce/links/img-5.jpg" class="example-image-link fa fa-search-plus fa-lg" data-lightbox="example-set">
+                  </a>
+                   
+                </div>
+              </div>
+              <div class="grid-title text-center py-3">
+                <h4>Prisma LED</h4>
+                <p class="pb-1 px-2">A Woocommerce based online store having functionality of special offers, Coupons,Products, Category Management with PayPal Payment Gateway. 
+					</p>
+              </div>
+            </div>
+          </div>
+            
+              <div class="grid-item" data-filter="Magento">
+            <div class="grid-wrapper">
+              <div class="grid-img">
+                <img src="images/portfolio/Magento/img-1.jpg" class="img-fluid" alt="Portfolio Image 1" obj.alt="obj.alt">
+                <div class="grid-img-overlay"></div>
+                <div class="grid-img-overlay-content">
+                  <a href="images/portfolio/Magento/links/img-1.jpg" class="example-image-link fa fa-search-plus fa-lg" data-lightbox="example-set">
+                  </a>
+                   
+                </div>
+              </div>
+              <div class="grid-title text-center py-3">
+                <h4>Ausie Action Kids</h4>
+                <p class="pb-1 px-2">An online store for selling large play toys gyms ,Climbers having functionality of special offers, Coupons,Products, Category Management with Supported Payment Gateways. 
+					</p>
+              </div>
+            </div>
+          </div>  
+            <div class="grid-item" data-filter="Magento">
+            <div class="grid-wrapper">
+              <div class="grid-img">
+                <img src="images/portfolio/Magento/img-2.jpg" class="img-fluid" alt="Portfolio Image 1" obj.alt="obj.alt">
+                <div class="grid-img-overlay"></div>
+                <div class="grid-img-overlay-content">
+                  <a href="images/portfolio/Magento/links/img-2.jpg" class="example-image-link fa fa-search-plus fa-lg" data-lightbox="example-set">
+                  </a>
+                   
+                </div>
+              </div>
+              <div class="grid-title text-center py-3">
+                <h4>Carpet Tile Wholesale</h4>
+                <p class="pb-1 px-2">Online Magento Store for selling Carpet Tiles with all Product, Category, Vendor Management.
+					</p>
+              </div>
+            </div>
+          </div>  
+            <div class="grid-item" data-filter="Magento">
+            <div class="grid-wrapper">
+              <div class="grid-img">
+                <img src="images/portfolio/Magento/img-3.jpg" class="img-fluid" alt="Portfolio Image 1" obj.alt="obj.alt">
+                <div class="grid-img-overlay"></div>
+                <div class="grid-img-overlay-content">
+                  <a href="images/portfolio/Magento/links/img-3.jpg" class="example-image-link fa fa-search-plus fa-lg" data-lightbox="example-set">
+                  </a>
+                   
+                </div>
+              </div>
+              <div class="grid-title text-center py-3">
+                <h4>Sleep Center</h4>
+                <p class="pb-1 px-2">Online Store for Selling Materesses and its related products, Offers, Discounts,Deals managed functionality.
+					</p>
+              </div>
+            </div>
+          </div> 
+            <div class="grid-item" data-filter="Magento">
+            <div class="grid-wrapper">
+              <div class="grid-img">
+                <img src="images/portfolio/Magento/img-4.jpg" class="img-fluid" alt="Portfolio Image 1" obj.alt="obj.alt">
+                <div class="grid-img-overlay"></div>
+                <div class="grid-img-overlay-content">
+                  <a href="images/portfolio/Magento/links/img-4.jpg" class="example-image-link fa fa-search-plus fa-lg" data-lightbox="example-set">
+                  </a>
+                   
+                </div>
+              </div>
+              <div class="grid-title text-center py-3">
+                <h4>JAM Industrial Supply</h4>
+                <p class="pb-1 px-2">Magento based WebApplication selling Metal and Hardware related products with Category,Order,Customer,Product,Inventory Management.
+					</p>
+              </div>
+            </div>
+          </div> 
+            <div class="grid-item" data-filter="Magento">
+            <div class="grid-wrapper">
+              <div class="grid-img">
+                <img src="images/portfolio/Magento/img-5.jpg" class="img-fluid" alt="Portfolio Image 1" obj.alt="obj.alt">
+                <div class="grid-img-overlay"></div>
+                <div class="grid-img-overlay-content">
+                  <a href="images/portfolio/Magento/links/img-5.jpg" class="example-image-link fa fa-search-plus fa-lg" data-lightbox="example-set">
+                  </a>
+                   
+                </div>
+              </div>
+              <div class="grid-title text-center py-3">
+                <h4>PROHOODS</h4>
+                <p class="pb-1 px-2">Online Store showing stylish range of Kitchen Accesories showing full product listing as per category,Videos, Search, Contact features etc.
+					</p>
+              </div>
+            </div>
+          </div>  
+            <div class="grid-item" data-filter="Magento">
+            <div class="grid-wrapper">
+              <div class="grid-img">
+                <img src="images/portfolio/Magento/img-6.jpg" class="img-fluid" alt="Portfolio Image 1" obj.alt="obj.alt">
+                <div class="grid-img-overlay"></div>
+                <div class="grid-img-overlay-content">
+                  <a href="images/portfolio/Magento/links/img-6.jpg" class="example-image-link fa fa-search-plus fa-lg" data-lightbox="example-set">
+                  </a>
+                   
+                </div>
+              </div>
+              <div class="grid-title text-center py-3">
+                <h4>ZENSPORTZ</h4>
+                <p class="pb-1 px-2">Magento based Website selling sports related items online having functionality of special offers, Coupons,Products, Category Management with Supported Payment Gateways.
+					</p>
+              </div>
+            </div>
+          </div>
+            
+            
+               
+            <div class="grid-item" data-filter="Mobile">
+            <div class="grid-wrapper">
+              <div class="grid-img">
+                <img src="images/portfolio/Mobile/Bank_sm.png" class="img-fluid" alt="Portfolio Image 1" obj.alt="obj.alt">
+                <div class="grid-img-overlay"></div>
+                <div class="grid-img-overlay-content">
+                  <a href="images/portfolio/Mobile/Bank.png" class="example-image-link fa fa-search-plus fa-lg" data-lightbox="example-set">
+                  </a>
+                 
+                </div>
+              </div>
+              <div class="grid-title text-center py-3">
+                <h4>Bankroll Finance</h4>
+                <p class="pb-1 px-2">Hybrid App, based on React Ntaive. Simply provide some personal information and connect to your bank account , Bankroll allows you to borrow up to $500, deposited directly to your checking account. No pay-stubs required and no impact to your FICO score.
+</p>
+              </div>
+            </div>
+          </div>
+          <div class="grid-item" data-filter="Mobile">
+            <div class="grid-wrapper">
+              <div class="grid-img">
+                <img src="images/portfolio/Mobile/India_tourist_sm.png" class="img-fluid" alt="Portfolio Image 1" obj.alt="obj.alt">
+                <div class="grid-img-overlay"></div>
+                <div class="grid-img-overlay-content">
+                  <a href="images/portfolio/Mobile/India_tourist.png" class="example-image-link fa fa-search-plus fa-lg" data-lightbox="example-set">
+                  </a>
+                   
+                </div>
+              </div>
+              <div class="grid-title text-center py-3">
+                <h4>India Tourist Guide</h4>
+                <p class="pb-1 px-2">Native Android & iOS app.It's Very famous mobile app for tourist will visit India country, its have 1Lakh plus download of Android version and 5K approx download of iPhone app version.
+</p>
+              </div>
+            </div>
+          </div>
+          <div class="grid-item" data-filter="Mobile">
+            <div class="grid-wrapper">
+              <div class="grid-img">
+                <img src="images/portfolio/Mobile/cair_sm.png" class="img-fluid" alt="Portfolio Image 1" obj.alt="obj.alt">
+                <div class="grid-img-overlay"></div>
+                <div class="grid-img-overlay-content">
+                  <a href="images/portfolio/Mobile/cair.png" class="example-image-link fa fa-search-plus fa-lg" data-lightbox="example-set">
+                  </a>
+                   
+                </div>
+              </div>
+              <div class="grid-title text-center py-3">
+                <h4>Cair Sensor</h4>
+                <p class="pb-1 px-2">iOS & Android (Cordova JS With ionic framework). Cair is a smart air quality sensor that continuously monitors the air in your home and learns your asthma and allergy triggers that are caused by poor indoor air quality.</p>
+              </div>
+            </div>
+          </div>
+                <div class="grid-item" data-filter="Mobile">
+            <div class="grid-wrapper">
+              <div class="grid-img">
+                <img src="images/portfolio/Mobile/black_sm.png" class="img-fluid" alt="Portfolio Image 1" obj.alt="obj.alt">
+                <div class="grid-img-overlay"></div>
+                <div class="grid-img-overlay-content">
+                  <a href="images/portfolio/Mobile/black.png" class="example-image-link fa fa-search-plus fa-lg" data-lightbox="example-set">
+                  </a>
+                 
+                </div>
+              </div>
+              <div class="grid-title text-center py-3">
+                <h4>Black Pages UK</h4>
+                <p class="pb-1 px-2"> Native Android & iOS apps iOS. This app is all about managing events ranging from shops, salons, barbershops, events, forums and more. Showing Events, Offer, Directories,Creating and attending the event functionality also integrated</p>
+              </div>
+            </div>
+          </div>  
+            <div class="grid-item" data-filter="Mobile">
+            <div class="grid-wrapper">
+              <div class="grid-img">
+                <img src="images/portfolio/Mobile/winter_sm.jpg" class="img-fluid" alt="Portfolio Image 1" obj.alt="obj.alt">
+                <div class="grid-img-overlay"></div>
+                <div class="grid-img-overlay-content">
+                  <a href="images/portfolio/Mobile/winter.jpg" class="example-image-link fa fa-search-plus fa-lg" data-lightbox="example-set">
+                  </a>
+                 
+                </div>
+              </div>
+              <div class="grid-title text-center py-3">
+                <h4>Winters Bros</h4>
+                <p class="pb-1 px-2">iOS & Android Native App with Core Data for store data on local device & Firebase cloud Messaging for Push Notifications integrations. Features includes Collection Services,Roll Off Containers,Transfer Service,Disposal Services, Recycling Request from user. </p>
+              </div>
+            </div>
+          </div>   
+            <div class="grid-item" data-filter="Mobile">
+            <div class="grid-wrapper">
+              <div class="grid-img">
+                <img src="images/portfolio/Mobile/Trump_tax_sm.png" class="img-fluid" alt="Portfolio Image 1" obj.alt="obj.alt">
+                <div class="grid-img-overlay"></div>
+                <div class="grid-img-overlay-content">
+                  <a href="images/portfolio/Mobile/Trump_tax.png" class="example-image-link fa fa-search-plus fa-lg" data-lightbox="example-set">
+                  </a>
+                 
+                </div>
+              </div>
+              <div class="grid-title text-center py-3">
+                <h4> Trump Tax</h4>
+                  <p class="pb-1 px-2">iOS Native App with Core Data for store data on local device & Firebase cloud Messaging for Push Notifications integrations.Basically relatd to USA Tax Calculation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+    </div>
+ </section>
+ 
+   <footer id="footer" class="page-section pb-5" style="padding-top:35px" >
+  <div class="container-fluid">
+    <div class="row">
+      <div class="text-center" style="margin:0px auto;margin:0px auto;margin-bottom: 15px;">
+        <div class="footer-middle-section">
+          <figure>
+            <img src="../startbitsolutions.com/images/logo.png" class="img-fluid" alt="TOP IT Company in Jaipur INDIA" title="TOP IT Company in Jaipur INDIA">
+          </figure> 
+      </div>
+    </div>
+         </div>
+      <div class="row">
+        <div class=" col-md-3 col-sm-6 block-y-space wow fadeInUp" data-wow-duration="1s" style="text-align:justify">
+          <div class="footer-text">
+            <h3>about</h3>
+            <div class="line-2 my-4"></div>
+            </div>
+           
+  <p>StartBit IT Solutions Pvt. Ltd. , an ISO 9001:2015 Certified Company, is a Global IT Services company with expertise in outsourced product development and custom software development with focusing on software development, IT consulting, customized development. </p>
+            <div>
+               <a href="http://vivacityinfotech.net/shop/" target="_blank" title="Top Software Company Jaipur India">   <i class="fa fa-shopping-cart  fa-2x py-3" style="color:#FFC30B"></i><span style="margin-left:10px;text-decoration:none;color:#0a1d47">Check our Store</span></a>
+
+          </div>
+          </div>
+       
+        <div class="col-md-3 col-sm-6 block-y-space wow fadeInUp" data-wow-duration="1s">
+          <div class="footer-text">
+            <h3>Follow us </h3>
+            <div class="line-2 my-4"></div>
+          
+            <div class="footer-img">
+              <ul class="inline-item " style="padding-left:0px">
+            <li class="facebook" ><a  target="_blank" title="Top Software Company Jaipur India" href="https://www.facebook.com/startbitsolutions/"><i class="fa fa-facebook" area-hidden="true"></i></a></li>
+            <li class="twitter"><a target="_blank" title="Top Software Company Jaipur India" href="http://twitter.com/startbitIT"><i class="fa fa-twitter" area-hidden="true"></i></a></li>
+            <li class="insta"><a target="_blank" title="Top Software Company Jaipur India" href="https://www.instagram.com/startbititsolutions/"><i class="fa fa-instagram" area-hidden="true"></i></a></li>
+            <li class="linked"><a title="Top Software Company Jaipur India" href="https://www.linkedin.com/company/startbititsolutions/" target="_blank"><i class="fa fa-linkedin" area-hidden="true"></i></a></li>
+            
+          </ul>
+          </div>
+            <div class="animated fadeInRightNow topspace10 fadeInRight">
+            <h5>Signup for our Newsletter</h5>
+                <p style="text-align:justify"> Subscribe to our newsletter to get latest information about our services, latest technology changes/upgrades etc.</p>
+             <form action="http://vivacityinfotech.us3.list-manage1.com/subscribe/post?u=3844e9219f32681c7f6cf5d55&amp;id=45580bde95" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="form-inline">
+             <input type="email" id="email" name="EMAIL" placeholder="Enter your Email address" class="col-md-9 mmp" size="30" required=""><br> <button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-bg minw-25 btn-2 my-2" style="margin-top: 8px;background:  #FFC30B;color: #fff">Subscribe</button>
+             </form>
+              </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 block-y-space wow fadeInUp" data-wow-duration="1s">
+          <div class="footer-text">
+              <h3>Find us on Map</h3>
+              <div class="line-2 my-4"></div>
+           <a href="contact.html" title="Top Software Company Jaipur India"><img src="images/stbit_map.png" alt="IT Consultant in Jaipur INDIA" title="IT Consultant in Jaipur INDIA"></a>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 block-y-space wow fadeInUp" data-wow-duration="1s">
+          <div class="footer-text">
+            <h3>Contact Us</h3>
+            <div class="line-2 my-4"></div>
+          
+            <address>
+                 <p><i class="icon-home"></i> StartBit IT Solutions Pvt. Ltd.<br>
+                 C-6/82, Chitrakoot, Vaishali Nagar, Jaipur-302021 </p>
+                <p>INDIA-<i class="fa fa-phone "></i> +91-141-2440803</p>
+                <p style="margin-left:60px">+91-93144-31546</p>
+                <p>USA- &nbsp;&nbsp;   <i class="fa fa-phone "></i>&nbsp; +1-503-746-8482  </p>
+                <p><i class="icon-envelope "></i> info@startbitsolutions.com </p>
+              </address>
+          </div>
+        </div>
+      </div>
+  </div>
+<!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122228897-1"></script> <script>   window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag('js', new Date());    gtag('config', 'UA-122228897-1'); </script></footer>
+        <section class="copy-right">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-8 col-sm-6">
+            <p style="color: #fff">© 2008 - <script type="text/javascript">                                     today = new Date();                                     y0 = today.getFullYear();                                     document.write(y0);                                 </script> StartBit IT Solutions Pvt. Ltd. | All Rights Reserved | <img src="images/comodo_secure_seal_76x26_transp.png" alt="IT Consultant in Jaipur INDIA" title="IT Consultant in Jaipur INDIA" style="height: 20px"></p>
+          </div>
+          <div class="col-md-4 col-sm-6 text-right">
+           
+          </div>
+        </div>
+      </div>
+    </section>
+   
+ <script src="js/sticky-navbar.js"></script> 
+<script type="text/javascript">
+$(document).ready(function () {
+    //Disable cut copy paste
+    $('body').bind('cut copy paste', function (e) {
+        e.preventDefault();
+    });
+   
+    //Disable mouse right click
+    $("body").on("contextmenu",function(e){
+        return false;
+    });
+});
+</script>
+</body>
+</html>
