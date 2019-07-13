@@ -1,0 +1,76 @@
+
+h1,
+h2,
+.pr-font,
+.price,
+.btn-cart,
+.btn-plate {
+	font-family: 'Cinzel', serif;
+	font-weight: normal;
+
+}
+
+
+
+
+
+/* SHORTCODE --- SLIDER
+   ========================================================================== */
+#slider {
+	height: 700px;
+	height: 100vmin;
+	color: #fff;
+	position: relative;
+	background-color: #fff;
+	overflow: hidden;
+	box-sizing: content-box;
+	padding-bottom: 7px;
+}
+#slider .item {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-size: cover;
+	background-position: 50% 50%;
+	opacity: 0;
+	transform: scale(1, 1);
+}
+#slider .active {
+	transition: transform 10s linear, opacity 3s;	
+	opacity: 1;
+	transform: scale(1.2, 1.2);
+}
+#slider .info-wrap {
+	position: relative;
+	height: 100%;
+	text-align: center;
+	z-index: 10;
+}
+#slider .info {
+	position: absolute;
+	top: 50%;
+	width: 100%;
+	transform: translateY(-50%);
+	padding: 0 20px;
+}
+#slider h1 {
+	line-height: 1;
+	font-size: 80px;
+	margin: 15px 0;
+	text-shadow: 1px 1px 2px #000;
+}
+#slider p {
+	text-shadow: 1px 1px 2px #000;
+	letter-spacing: 1.5px;
+}
+
+
+/* SECTION --- PROMO SLIDER
+   ========================================================================== */
+
+
+
