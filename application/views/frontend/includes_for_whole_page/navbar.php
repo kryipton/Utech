@@ -34,13 +34,10 @@
 
                                     <!--                                    haqqimizda-->
                                     <li>
-                                        <a href="about.html">Haqqımızda</a>
+                                        <a class="c_cursor_pointer">Haqqımızda</a>
                                         <ul>
                                             <li>
-                                                <a href="">Haqqımızda</a>
-                                            </li>
-                                            <li>
-                                                <a href="">Biz Kimik?</a>
+                                                <a href="<?php echo base_url("about")?>">Biz Kimik?</a>
                                             </li>
                                             <li>
                                                 <a href="">Niyə Biz?</a>

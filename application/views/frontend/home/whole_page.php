@@ -13,7 +13,6 @@
 <!--yuklenme animasiyasi-->
 
 
-
 <!--slider -->
 <?php $this->load->view("$this->parent_folder/$this->sub_folder/slider") ?>
 <!--slider -->
@@ -34,11 +33,9 @@
 <!--is strategiyasi-->
 
 
-
 <!--portfolio-->
 <?php $this->load->view("$this->parent_folder/$this->sub_folder/portfolio") ?>
 <!--portfolio-->
-
 
 
 <!--elaqe ve location hissesi-->
@@ -49,7 +46,6 @@
 <!--footer-->
 <?php $this->load->view("$this->parent_folder/$this->includes_for_whole/footer") ?>
 <!--footer-->
-
 
 
 <!--yuklenme animasiyasi-->
