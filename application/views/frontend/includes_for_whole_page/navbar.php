@@ -3,7 +3,9 @@
     <div id="box_wrapper">
 
         <!--navbar hissesi-->
+        <?php if ($this->sub_folder == "home"){ ?>
         <div class="header_absolute s-pb-30">
+        <?php } ?>
             <header class="page_header ds">
 
                 <!--                saytin esas navbari-->
@@ -25,15 +27,15 @@
                                 <ul class="nav sf-menu">
 
                                     <!--                                    ana seyfe-->
-                                    <li class="active">
-                                        <a href="<?php echo base_url("")?>">Ana Səyfə</a>
+                                    <li class="<?php if ($this->sub_folder == 'home') { ?>active <?php }  ?>" >
+                                        <a href="<?php echo base_url("Home")?>">Ana Səyfə</a>
                                     </li>
                                     <!--                                    ana seyfe-->
 
 
 
                                     <!--                                    haqqimizda-->
-                                    <li>
+                                    <li class="<?php if ($this->sub_folder == 'about') { ?>active <?php }  ?>" >
                                         <a class="c_cursor_pointer">Haqqımızda</a>
                                         <ul>
                                             <li>
@@ -50,25 +52,8 @@
 
 
                                     <!--                                    Servisler-->
-                                    <li>
-                                        <a href="">Xidmətlər</a>
-                                        <ul>
-                                            <li>
-                                                <a href="">Demo</a>
-                                            </li>
-                                            <li>
-                                                <a href="">Demo</a>
-                                            </li>
-                                            <li>
-                                                <a href="">Demo</a>
-                                            </li>
-                                            <li>
-                                                <a href="">Demo</a>
-                                            </li>
-                                            <li>
-                                                <a href="">Demo</a>
-                                            </li>
-                                        </ul>
+                                    <li class="<?php if ($this->sub_folder == 'services') { ?>active <?php }  ?>" >
+                                        <a href="<?php echo base_url('Services') ?>">Xidmətlər</a>
                                     </li>
                                     <!--                                    Servisler-->
 
@@ -76,27 +61,25 @@
 
 
                                     <!-- portfolio -->
-                                    <li>
-                                        <a href="">Portfel</a>
+                                    <li class="<?php if ($this->sub_folder == 'portfolio') { ?>active <?php }  ?>" >
+                                        <a href="<?php echo base_url('Portfolio') ?>">Portfel</a>
                                     </li>
                                     <!-- portfolio  -->
 
 
-
-
                                     <!-- emekdasliq -->
-                                    <li>
-                                        <a href="">Əməkdaşlıq</a>
+                                    <li class="<?php if ($this->sub_folder == 'partners') { ?>active <?php }  ?>">
+                                        <a href="<?php echo base_url('partners') ?>">Əməkdaşlıq</a>
                                     </li>
                                     <!-- emekdasliq  -->
 
-
-
                                     <!-- elaqe -->
-                                    <li>
-                                        <a href="">Əlaqə</a>
+                                    <li class="<?php if ($this->sub_folder == 'contact') { ?>active <?php }  ?>" >
+                                        <a href="<?php echo base_url('Contact') ?>">Əlaqə</a>
                                     </li>
                                     <!-- elaqe  -->
+
+
 
 
 

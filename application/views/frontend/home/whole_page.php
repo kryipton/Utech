@@ -8,9 +8,9 @@
 <!--yuklenme animasiyasi-->
 
 
-<!--yuklenme animasiyasi-->
+<!--Navbar-->
 <?php $this->load->view("$this->parent_folder/$this->includes_for_whole/navbar") ?>
-<!--yuklenme animasiyasi-->
+<!--Navbar-->
 
 
 <!--slider -->
