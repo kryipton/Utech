@@ -53,7 +53,49 @@ $route['default_controller'] = 'Home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+//===================================Admin Panel linkleri===================
+
+
+//portfolio hissesi
+$route['utech_admin_panel_portfolio'] = 'Panel_admin_page_portfolio';
+
+//portfolio kateqoriyalari hissesi
+$route['utech_admin_panel_portfolio_category'] = 'Panel_admin_page_portfolio/portfolio_category_list';
+
+//portfolio kateqoriyalari elave etme hissesi
+$route['utech_admin_panel_portfolio_category_add'] = 'Panel_admin_page_portfolio/portfolio_category_list_add';
+
+//portfolio kateqoriyalari elave etme hissesinin actionu
+$route['utech_admin_panel_portfolio_category_add_act'] = 'Panel_admin_page_portfolio/portfolio_category_list_add_act';
+
+//portfolio kateqoriyalari yenileme hissesi
+$route['utech_admin_panel_portfolio_category_update/(.*)'] = 'Panel_admin_page_portfolio/portfolio_category_list_update/$1';
+
+//portfolio kateqoriyalari yenileme hissesi
+$route['utech_admin_panel_portfolio_category_update_act/(.*)'] = 'Panel_admin_page_portfolio/portfolio_category_list_update_act/$1';
+
+
+//portfolio kateqoriyalari silme hissesi
+$route['utech_admin_panel_portfolio_category_delete/(.*)'] = 'Panel_admin_page_portfolio/portfolio_category_list_delete/$1';
+
+
+//portfolio list hissesi
+$route['utech_admin_panel_portfolio_list'] = 'Panel_admin_page_portfolio/portfolio_list';
+
+
+//===================================Admin Panel linkleri===================
+
+
+
+
+
+
+
+
+//===================================Front hissesi==========================
 
 //about hissesi
 $route['about'] = 'About/index';
 
+
+//===================================Front hissesi==========================
