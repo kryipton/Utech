@@ -56,6 +56,10 @@
 
 
 //     portfolio qalereya hissesi
+     public function get_gellery_list(){
+         return $this->db->where("is_primary", 1)->order_by("portfolio_id", "DESC")->get("portfolio_gallery")->result_array();
+     }
+
      public function get_portfolio_gallery($where){
          return $this->db->where($where)->order_by("id", "DESC")->get("portfolio_gallery")->result_array();
      }
@@ -66,10 +70,6 @@
 
      public function portfolio_gallery_delete($where){
         return $this->db->where($where)->delete("portfolio_gallery");
-     }
-
-     public function portfolio_gallery_delete_all(){
-         $this->db->empty_table("portfolio_gallery");
      }
 
      public function portfolio_gallery_update($where, $data){

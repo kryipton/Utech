@@ -19,24 +19,57 @@
 
     <!--                                tablenin basliqi-->
     <thead>
-    <th style="width:22%">Proyektin Adı</th>
-    <th style="width:9%">Proyektin Ana Şəkli</th>
-    <th style="width:6%">Yüklənmə Tarixi</th>
-    <th style="width:5%">Qalereya</th>
-    <th style="width:5%">Əməliyatlar</th>
+    <th style="width:22%;">Proyektin Adı</th>
+    <th style="width:9%; text-align: center">Proyektin Ana Şəkli</th>
+    <th style="width:6%; text-align: center">Yüklənmə Tarixi</th>
+    <th style="width:5%; text-align: center">Qalereya</th>
+    <th style="width:5%; text-align: center">Əməliyatlar</th>
     </thead>
     <!--                                tablenin basliqi-->
 
 
+
+
+
     <!--                                tablenin bodysi-->
     <tbody>
-    <?php foreach ($portfolio as $item) {?>
+    <?php for ($x = 0; $x < count($portfolio); $x++){?>
+        <?php $item = $portfolio[$x]?>
+
+
+<!--        bunu tapana qeder oldum :D-->
+        <?php
+
+            for ($y = 0; $y < count($all_gallery); $y++){
+                $cond = array_search($portfolio[$x]["id"], $all_gallery[$y]);
+
+
+                if ($cond == "portfolio_id"){
+                    $gallery = $all_gallery[$y]["name"];
+                    break;
+                }else{
+                    $gallery = "default.png";
+                }
+
+
+            }
+
+            if (empty($all_gallery)){
+                $gallery = "default.png";
+            }
+
+        ?>
+<!--        bunu tapana qeder oldum :D-->
+
+
+
+
         <tr>
             <td class="v-align-middle c_vertical_align_middle">
                 <?php echo $item["name"]?>
             </td>
             <td class="v-align-middle c_vertical_align_middle text-center">
-                <img width="120px" height="100px" src="https://html.com/wp-content/uploads/very-large-flamingo.jpg" alt="">
+                <img width="120px" height="100px" src="<?php echo base_url("uploads/portfolio/$gallery")?>" alt="Şəkil Yüklənmədi">
             </td>
             <td class="c_vertical_align_middle text-center">
                 <?php echo $item["upload_date"]?>
