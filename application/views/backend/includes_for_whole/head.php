@@ -31,6 +31,8 @@
 
 
     <link href="<?php echo base_url('public/assets_for_backend')?>/custom/css/webarch.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('public/assets_for_backend')?>/custom/css/iziToast.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('public/assets_for_backend')?>/custom/css/custom.css" rel="stylesheet" type="text/css" />
 
 </head>
 
