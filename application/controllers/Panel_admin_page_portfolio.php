@@ -67,6 +67,19 @@
                 )
              );
 
+
+             $old_category =  $this->session->flashdata("old_category");
+            
+             $this->Portfolio_model->portfolio_gallery_update_old_category_in_portfolio_list(
+                 array(
+                     "category_name" => $old_category,
+                 ),
+                 array(
+                     "category_name" => $category_name,
+                 )
+             );
+
+
              $this->session->set_flashdata("alert", "Məlumat Yeniləndi!");
              redirect(base_url("utech_admin_panel_portfolio_category"));
 

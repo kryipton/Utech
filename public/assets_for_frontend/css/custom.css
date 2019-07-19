@@ -1,3 +1,7 @@
 .c_cursor_pointer{
     cursor: pointer;
 }
+.c_img_cover{
+    height: 260px!important;
+    object-fit: cover;
+}

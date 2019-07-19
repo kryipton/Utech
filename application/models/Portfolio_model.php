@@ -75,6 +75,10 @@
      public function portfolio_gallery_update($where, $data){
          $this->db->where($where)->update("portfolio_gallery", $data);
      }
+
+     public function portfolio_gallery_update_old_category_in_portfolio_list($where, $data){
+         $this->db->where($where)->update("portfolio", $data);
+     }
 //     portfolio qalereya hissesi
 
 
