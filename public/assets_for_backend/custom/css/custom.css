@@ -19,3 +19,32 @@
 .c_portfolio_btn{
     width: 70%;
 }
+
+.c_dropzone{
+    margin-bottom: 40px!important;
+}
+
+.c_dropzone span{
+    font-size: 20px;
+}
+
+.c_right{
+    float: right;
+    margin-bottom: 20px;
+}
+
+.c_add_text{
+    vertical-align: middle!important;
+}
+
+.c_box_height{
+    height: 40px!important;
+}
+
+.c_padding_0{
+    padding: 0!important;
+}
+
+.c_float_left{
+    float: left!important;
+}

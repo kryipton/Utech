@@ -10,10 +10,9 @@
             <div class="grid simple ">
                 <div class="row" style="margin-top: 50px">
                     <div class="grid-body no-border c_grid_padding">
-                        <div class="row">
+                        <div class="row c_resfresh_portfolio_category">
 
-                            <a href="<?php echo base_url("utech_admin_panel_portfolio_category_add")?>" class="btn btn-success">Əlavə Et</a>
-                            <br><br>
+
 
                             <?php $this->load->view("$this->parent_folder/$this->sub_folder/portfolio_category/portfolio_category_delete_render_page/portfolio_category_table");?>
 
@@ -26,5 +25,15 @@
 
 
 <?php $this->load->view("$this->parent_folder/$this->includes_for_whole/footer");?>
-
+<!--melumat alerti-->
+<?php if($this->session->flashdata("alert")){ ?>
+    <script>
+        iziToast.success({
+            icon: 'icon-person',
+            message: '<?php echo $this->session->flashdata("alert")?>',
+            position: 'topCenter', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter
+            // progressBarColor: 'rgb(0, 255, 184)',
+        });
+    </script>
+<?php }?>
 
