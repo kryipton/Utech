@@ -83,6 +83,18 @@ $route['utech_admin_panel_portfolio_category_delete/(.*)'] = 'Panel_admin_page_p
 $route['utech_admin_panel_portfolio_list'] = 'Panel_admin_page_portfolio/portfolio_list';
 
 
+//-------------------- contact hissesi -----------------------
+$route['utech_admin_panel_message'] = 'Panel_admin_page_contact/index';
+$route['utech_admin_panel_message_delete/(:any)'] = 'Panel_admin_page_contact/delete_message/$1';
+$route['utech_admin_panel_message_single/(:any)'] = 'Panel_admin_page_contact/single_message/$1';
+
+
+
+
+//-------------------- contact hissesi -----------------------
+
+
+
 //===================================Admin Panel linkleri===================
 
 
@@ -96,6 +108,11 @@ $route['utech_admin_panel_portfolio_list'] = 'Panel_admin_page_portfolio/portfol
 
 //about hissesi
 $route['about'] = 'About/index';
+
+//-------------------- contact hissesi -----------------------
+$route['Contact'] = 'Contact/index';
+$route['Send_Message'] = 'Contact/send_message';
+//-------------------- contact hissesi -----------------------
 
 
 //===================================Front hissesi==========================
