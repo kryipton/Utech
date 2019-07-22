@@ -81,6 +81,11 @@
                         <span class="selected"></span>
                     </a>
                 </li>
+
+                <li class="open active">
+                    <a href="<?php echo base_url("utech_admin_panel_message")?>"> <i class="material-icons">email</i> <span class="title">Mesajlar</span> <span class=" badge badge-disable pull-right "></span>
+                    </a>
+                </li>
             </ul>
 
 
