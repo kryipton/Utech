@@ -150,7 +150,6 @@ $('.c_check_all').click(function () {
     } else{
         $(".isChoosed_portfolio").prop("checked" ,false);
     }
-
     counter++;
 });
 

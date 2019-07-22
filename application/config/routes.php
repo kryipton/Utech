@@ -159,5 +159,11 @@ $route['utech_admin_panel_portfolio_gallery_delete_all/(.*)'] = 'Panel_admin_pag
 //about hissesi
 $route['about'] = 'About/index';
 
+//portfolio hissesi
+$route['portfolio'] = 'Portfolio/index';
+
+//portfolio single hissesi
+$route['portfolio_single/(.*)'] = 'Portfolio_single/page/$1';
+
 
 //===================================Front hissesi==========================

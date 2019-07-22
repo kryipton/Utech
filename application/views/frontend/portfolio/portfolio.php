@@ -8,7 +8,7 @@
 							<h1>Portfel</h1>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item">
-									<a href="<?php echo base_url('Home') ?>">Ana Sehife</a>
+									<a href="<?php echo base_url() ?>">Ana Sehife</a>
 								</li>
 								<li class="breadcrumb-item active">
 									Portfel
@@ -76,12 +76,14 @@
                                             </div>
                                             <div class="item-content">
                                                 <h6>
-                                                    <a href="http://webdesign-finder.com/gallery-item3.html">
+                                                    <a href="<?php echo base_url("portfolio_single/$item[id]")?>">
                                                         <?php echo $item["name"]?>
                                                     </a>
                                                 </h6>
                                                 <div class="small-text link-a">
-                                                    <a href="#"><?php echo $item["category_name"]?></a>
+                                                    <a href="<?php echo base_url("portfolio_single/$item[id]")?>">
+                                                        <?php echo $item["category_name"]?>
+                                                    </a>
                                                 </div>
 
                                             </div>

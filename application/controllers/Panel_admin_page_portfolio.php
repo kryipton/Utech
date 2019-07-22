@@ -69,7 +69,7 @@
 
 
              $old_category =  $this->session->flashdata("old_category");
-            
+
              $this->Portfolio_model->portfolio_gallery_update_old_category_in_portfolio_list(
                  array(
                      "category_name" => $old_category,
