@@ -2,15 +2,13 @@
 <?php $this->load->view("$this->parent_folder/$this->includes_for_whole/header") ?>
 <!--header-->
 
+<!--Navbar-->
+<?php $this->load->view("$this->parent_folder/$this->includes_for_whole/navbar") ?>
+<!--Navbar-->
 
 <!--yuklenme animasiyasi-->
 <?php $this->load->view("$this->parent_folder/$this->includes_for_whole/pre_loader") ?>
 <!--yuklenme animasiyasi-->
-
-
-<!--Navbar-->
-<?php $this->load->view("$this->parent_folder/$this->includes_for_whole/navbar") ?>
-<!--Navbar-->
 
 
 <!--slider -->
