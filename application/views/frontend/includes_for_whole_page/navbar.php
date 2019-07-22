@@ -28,7 +28,7 @@
 
                                     <!--                                    ana seyfe-->
                                     <li class="<?php if ($this->sub_folder == 'home') { ?>active <?php }  ?>" >
-                                        <a href="<?php echo base_url("Home")?>">Ana Səyfə</a>
+                                        <a href="<?php echo base_url("Home")?>">Ana Səhifə</a>
                                     </li>
                                     <!--                                    ana seyfe-->
 
