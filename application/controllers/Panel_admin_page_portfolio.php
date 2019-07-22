@@ -341,14 +341,30 @@
         public function prtfolio_gallery_delete_all($portfolio_id){
 
 
-         $this->Portfolio_model->portfolio_gallery_delete(array(
-             "portfolio_id" => $portfolio_id,
-         ));
+            $idler = $this->input->post("data");
 
-         $this->session->set_flashdata("alert", "Məlumatlar Silindi!");
+            if ($idler){
+                foreach ($idler as $a_id => $id){
+                    $this->Portfolio_model->portfolio_gallery_delete(array(
+                        "id" => $id,
+                    ));
+                }
+            }
 
-         redirect("utech_admin_panel_portfolio_gallery/$portfolio_id");
-     }
+
+            ($idler) ? $this->session->set_flashdata("alert", "Məlumatlar Silindi!") : "";
+
+            $data["gallery"] = $this->Portfolio_model->get_portfolio_gallery(array(
+                "portfolio_id" => $portfolio_id,
+            ));
+
+            $data["portfolio"] = $this->Portfolio_model->get_portfolio_list_single(array(
+                "id" => $portfolio_id,
+            ));
+
+            $this->load->view("$this->parent_folder/$this->sub_folder/portfolio_gallery/portfolio_list_render_page/portfolio_gallery_table", $data);
+
+        }
 
 //         =======================Portfoliolarin qalereya hissesi =================================
 

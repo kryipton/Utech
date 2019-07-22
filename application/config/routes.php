@@ -149,10 +149,6 @@ $route['utech_admin_panel_portfolio_gallery_delete_all/(.*)'] = 'Panel_admin_pag
 $route['utech_admin_panel_message'] = 'Panel_admin_page_contact/index';
 $route['utech_admin_panel_message_delete/(:any)'] = 'Panel_admin_page_contact/delete_message/$1';
 $route['utech_admin_panel_message_single/(:any)'] = 'Panel_admin_page_contact/single_message/$1';
-
-
-
-
 //-------------------- contact hissesi -----------------------
 
 

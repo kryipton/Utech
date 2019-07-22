@@ -7,7 +7,7 @@
     <th style="width:1%; vertical-align: middle;">
 
         <div class="checkbox check-default c_float_left ">
-            <input id="checkbox" type="checkbox" value="1" class="c_check_all">
+            <input id="checkbox" type="checkbox" value="1" class="c_check_all" data-cond="true">
             <label for="checkbox"></label>
         </div>
 
@@ -35,10 +35,10 @@
     <!--                                tablenin bodysi-->
     <tbody>
     <?php foreach ($gallery as $item) {?>
-        <tr>
+        <tr class="change_color">
             <td class="v-align-middle c_vertical_align_middle">
                 <div class="checkbox check-default">
-                    <input class="isChoosed_portfolio" id="<?php echo $item["id"]?>" type="checkbox" value="1">
+                    <input class="isChoosed_portfolio" id="<?php echo $item["id"]?>" type="checkbox" value="1" data-cond = "true">
                     <label for="<?php echo $item["id"]?>"></label>
                 </div>
             </td>
@@ -101,6 +101,7 @@
         })
             .then((willDelete) => {
                 if (willDelete) {
+
                     // window.location.href = $data_url;
                     $.post($data_url_portfolio_category, {}, function (response) {
                         $('.c_resfresh_portfolio_category').html(response);
@@ -145,17 +146,42 @@
     });
 
     //butun elementleri secmek
+    var idArray = [];
     var counter = 0;
     $('.c_check_all').click(function () {
 
         if (counter % 2 === 0){
             $(".isChoosed_portfolio").prop("checked" ,true);
+
+
+            $('.isChoosed_portfolio').each(function () {
+                idArray.push(this.id);
+            });
+
+            $(".isChoosed_portfolio").click(function () {
+
+                var isCheck = $(this).prop("checked");
+
+                if (isCheck == false){
+                    var removeItem = $(this).attr("id");
+
+                    idArray = jQuery.grep(idArray, function(value) {
+                        return value != removeItem;
+                    });
+                }else{
+                    idArray.push($(this).attr("id"))
+                }
+
+            });
+
+
+
         } else{
             $(".isChoosed_portfolio").prop("checked" ,false);
         }
-
         counter++;
     });
+
 
     //portfoliodaki birden cox elementi silmek
     $('.c_all_delete_portfolio').click(function () {
@@ -198,13 +224,78 @@
 
                         })
                     }else{
-                        window.location.href = $data_url;
+
+                        $.post($data_url, {data: idArray}, function (response) {
+
+                            $('.c_resfresh_portfolio_category').html(response);
+
+                            // multiple switchler ucun kod
+                            isPrimary = {
+                                color             : '#8307bd',
+                                className         : 'switchery'
+
+                            };
+
+                            var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+
+                            elems.forEach(function(html) {
+
+                                var switchery = new Switchery(html, isPrimary);
+
+
+                            });lems = Array.prototype.slice.call(document.querySelectorAll('.js-switch-dfcolor'));
+
+
+                        })
+
                     }
 
                 }
             });
         event.preventDefault();
     });
+
+
+
+    //tablede switche basanda rowunn renginin deyismesi
+    $(".isChoosed_portfolio").click(function () {
+
+        if ($(this).data("cond") == true){
+            $(this)
+                .closest( ".change_color" )
+                .css("background-color", "#FFFF66");
+            $(this).data("cond", false);
+        } else{
+
+            $(this)
+                .closest( ".change_color" )
+                .css("background-color", "white");
+            $(this).data("cond", true);
+        }
+
+    });
+
+
+    //tablede switche basanda butun rowlarin renginin deyismesi
+    $(".c_check_all").click(function () {
+
+        if ($(this).data("cond") == true){
+            $(".change_color").css("background-color", "#FFFF66");
+            $(this).data("cond", false);
+
+            $(".isChoosed_portfolio").data("cond", false);
+
+
+        } else{
+            $(".change_color").css("background-color", "white");
+            $(this).data("cond", true);
+
+            $(".isChoosed_portfolio").data("cond", true);
+
+        }
+
+    });
+
 </script>
 
 
