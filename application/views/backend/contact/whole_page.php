@@ -72,7 +72,7 @@
                                                                 </td>
 
                                                             <td class="clickable v-align-middle">
-                                                                    <span class="muted">Yesterday</span>
+                                                                    <span class="muted"> <?php echo $message["date"]?></span>
                                                                 </td>
                                                         </tr>
                                                         <?php } ?>
