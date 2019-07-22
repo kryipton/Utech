@@ -51,6 +51,7 @@
                                                     </div>
                                                      <?php }?>
                                                     <tbody>
+                                                    <?php if (!empty($messages)) {?>
                                                     <?php foreach ($messages as $message) { ?>
                                                         <tr>
                                                                 <td class="small-cell v-align-middle">
@@ -76,6 +77,10 @@
                                                                 </td>
                                                         </tr>
                                                         <?php } ?>
+
+                                                    <?php }else{ ?>
+                                                        <p style="text-align:center;     font-size: 25px;  margin-top: 10px; " >Mesaj yoxdur</p>
+                                                    <?php } ?>
                                                     </tbody>
                                                 </table>
                                             </div>
