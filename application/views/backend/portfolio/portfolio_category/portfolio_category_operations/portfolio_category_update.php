@@ -16,7 +16,9 @@
                                 <label for="name">Kateqoriyanın Adı</label>
                                 <input id="name" type="text" class="form-control" name="category_name" value="<?php echo $portfolio_category["name"] ?>">
                                 <br>
+
                                 <button type="submit" class="btn btn-primary">Yenilə</button>
+
                             </form>
 
                         </div>
@@ -26,5 +28,6 @@
         </div>
     </div>
 
+<?php echo $this->session->set_flashdata("old_category", $portfolio_category["name"])?>
 
 <?php $this->load->view("$this->parent_folder/$this->includes_for_whole/footer");?>

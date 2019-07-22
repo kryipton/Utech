@@ -1,5 +1,8 @@
 <?php if (!empty($portfolio_categories)){?>
-    <table class="table no-more-tables table-bordered c_resfresh_portfolio_category">
+    <a href="<?php echo base_url("utech_admin_panel_portfolio_category_add")?>" class="btn btn-success">Əlavə Et</a>
+    <br><br>
+
+    <table class="table no-more-tables table-bordered table-hover">
         <thead>
         <th style="width:80%">Kateqoriyanın Adı</th>
         <th style="width:19%">Əməliyyatlar</th>
@@ -22,6 +25,9 @@
         </tbody>
     </table>
 <?php }else{?>
+    <a href="<?php echo base_url("utech_admin_panel_portfolio_category_add")?>" class="btn btn-success">Əlavə Et</a>
+    <br><br>
+
     <div class="alert alert-info text-center">
         <h3>Məlumat daxil edilməmişdir</h3>
     </div>
@@ -48,8 +54,7 @@
                 if (willDelete) {
                     // window.location.href = $data_url;
                     $.post($data_url_portfolio_category, {}, function (response) {
-                        // $('.c_img_list_container').empty();
-                        // alert(response);
+
                         $('.c_resfresh_portfolio_category').html(response);
 
                     })

@@ -1,6 +1,9 @@
 
 
 </div>
+</body>
+</html>
+
 
 <script src="<?php echo base_url('public/assets_for_backend')?>/plugins/pace/pace.min.js" type="text/javascript"></script>
 
@@ -38,7 +41,6 @@
 <script src="<?php echo base_url('public/assets_for_backend')?>/js/dashboard_v2.js" type="text/javascript"></script>
 <script src="<?php echo base_url('public/assets_for_backend')?>/js/sweetalert.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url('public/assets_for_backend')?>/js/iziToast.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url('public/assets_for_backend')?>/js/dropzone.js" type="text/javascript"></script>
 <script src="<?php echo base_url('public/assets_for_backend')?>/js/custom.js" type="text/javascript"></script>
-</body>
 
-</html>
