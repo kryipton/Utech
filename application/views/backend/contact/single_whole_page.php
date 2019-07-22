@@ -32,7 +32,7 @@
                                                 <label class="inline"><span class="muted">&nbsp;&nbsp;phone:</span> <span class="bold small-text"><?php echo $message['phone'] ?></span></label>
                                             </div>
                                             <div class="pull-right">
-                                                <span class="muted small-text">August 5 2013 11.30PM</span>
+                                                <span class="muted small-text"> <?php echo $message['date'] ?></span>
                                             </div>
                                             <div class="clearfix">
                                             </div>
