@@ -35,6 +35,10 @@
          return $this->db->order_by("id", "DESC")->get("portfolio")->result_array();
      }
 
+     public function get_portfolio_list_e($name){
+         return $this->db->where('category_name',$name)->order_by("id", "DESC")->get("portfolio")->result_array();
+     }
+
      public function get_portfolio_list_single($where){
          return $this->db->where($where)->get("portfolio")->row_array();
      }
