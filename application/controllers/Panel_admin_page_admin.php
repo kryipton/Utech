@@ -36,7 +36,7 @@
             if (!empty($usr) && !empty($psw)){
                 $this->Login_model->update_user(array(
                     "username" => $usr,
-                    "password" => $psw,
+                    "password" => md5($psw),
                 ));
                 $this->session->set_flashdata("alert_success", "Admin Məlumatları Yeniləndi!");
 

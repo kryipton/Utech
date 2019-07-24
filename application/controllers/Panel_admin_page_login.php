@@ -37,10 +37,11 @@
              $usr = strip_tags($this->input->post("usr"));
              $psw = strip_tags($this->input->post("psw"));
 
+
             if (!empty($usr) && !empty($psw)){
                 $result = $this->Login_model->check_user(array(
                         "username" => $usr,
-                        "password" => $psw,
+                        "password" => md5($psw),
                 ));
 
                 if ($result){

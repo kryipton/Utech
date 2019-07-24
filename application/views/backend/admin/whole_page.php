@@ -18,8 +18,8 @@
                                 <br>
 
 
-                                <label for="name">Şifrə</label>
-                                <input id="name" type="text" class="form-control" name="psw" value="<?php echo $user["password"] ?>">
+                                <label for="name">Yeni Şifrə</label>
+                                <input id="name" type="password" class="form-control" name="psw">
                                 <br>
 
 
