@@ -153,6 +153,28 @@ $route['utech_admin_panel_message_single/(:any)'] = 'Panel_admin_page_contact/si
 
 
 
+
+//-------------------------------Servis Hissesi-------------------
+
+$route['utech_admin_panel_services'] = 'Panel_admin_page_services/index';
+$route['utech_admin_panel_services_elave_et'] = 'Panel_admin_page_services/AddService';
+$route['utech_admin_panel_services_elave_etme'] = 'Panel_admin_page_services/AddServiceAct';
+$route['utech_admin_panel_services_yenile/(.*)'] = 'Panel_admin_page_services/UpdateService/$1';
+$route['utech_admin_panel_services_yenileme/(.*)'] = 'Panel_admin_page_services/UpdateServiceAct/$1';
+$route['utech_admin_panel_services_sil/(.*)'] = 'Panel_admin_page_services/DeleteService/$1';
+
+
+
+
+
+
+
+//-------------------------------Servis Hissesi-------------------
+
+
+
+
+
 //===================================Admin Panel linkleri===================
 
 

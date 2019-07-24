@@ -6,10 +6,10 @@
 							<h1>Servislerimiz</h1>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item">
-									<a href="<?php echo base_url('Home') ?>">Home</a>
+									<a href="<?php echo base_url('Home') ?>">Ana Sehife</a>
 								</li>
 								<li class="breadcrumb-item active">
-									Services 1
+									Servislerimiz
 								</li>
 							</ol>
 							<div class="divider-15 d-none d-xl-block"></div>
@@ -23,118 +23,26 @@
 				<div class="d-none d-lg-block divider-65"></div>
 				<div class="container">
 					<div class="row">
-						<div class="col-md-4 col-sm-6">
+                        <?php foreach ($services as $service){?>
+                            <a href="<?php echo base_url('Services/Single/'.$service['id']) ?>"><div class="col-md-4 col-sm-6">
 
 							<div class="vertical-item text-center">
 								<div class="item-media">
-									<img src="<?php echo base_url('public/assets_for_frontend/images') ?>/service/service_icon_1-1.png" alt="">
+									<img src="<?php echo base_url('uploads/services/'.$service['service_img']) ?>" alt="">
 								</div>
 								<div class="item-content">
 									<h6>
-										<a href="service-single1.html">Marketing</a>
+										<a href="<?php echo base_url('Services/Single/'.$service['id']) ?>"><?php echo $service['service_name'] ?></a>
 									</h6>
 
 									<p>
-										We use strategic marketing tactics that have been proven to work.
+                                        <?php echo $service['service_title'] ?>
 									</p>
 
 								</div>
 							</div>
-						</div>
-						<!-- .col-* -->
-						<div class="col-md-4 col-sm-6">
-
-							<div class="vertical-item text-center">
-								<div class="item-media">
-									<img src="<?php echo base_url('public/assets_for_frontend/images') ?>/service/service_icon_2-1.png" alt="">
-								</div>
-								<div class="item-content">
-									<h6>
-										<a href="service-single1.html">Development</a>
-									</h6>
-
-									<p>
-										Custom programming for most complex functions you can think.
-									</p>
-
-								</div>
-							</div>
-						</div>
-						<!-- .col-* -->
-						<div class="col-md-4 col-sm-6">
-
-							<div class="vertical-item text-center">
-								<div class="item-media">
-									<img src="<?php echo base_url('public/assets_for_frontend/images') ?>/service/service_icon_3-1.png" alt="">
-								</div>
-								<div class="item-content">
-									<h6>
-										<a href="service-single1.html">Web Design</a>
-									</h6>
-
-									<p>
-										Pork chop pork belly hamburger prosciutto, fatback andouille flank.
-									</p>
-								</div>
-							</div>
-						</div>
-						<!-- .col-* -->
-						<div class="col-md-4 col-sm-6">
-
-							<div class="vertical-item text-center">
-								<div class="item-media">
-									<img src="<?php echo base_url('public/assets_for_frontend/images') ?>/service/service_icon_4-1.png" alt="">
-								</div>
-								<div class="item-content">
-									<h6>
-										<a href="service-single1.html">SEO Optimization</a>
-									</h6>
-
-									<p>
-										Optimizing our web designs to rank on the first page of google is our specialty.
-									</p>
-								</div>
-							</div>
-						</div>
-						<!-- .col-* -->
-						<div class="col-md-4 col-sm-6">
-
-							<div class="vertical-item text-center">
-								<div class="item-media">
-									<img src="<?php echo base_url('public/assets_for_frontend/images') ?>/service/service_icon_5-1.png" alt="">
-								</div>
-								<div class="item-content">
-									<h6>
-										<a href="service-single1.html">Ecommerce</a>
-									</h6>
-
-									<p>
-										We build your online store using a flexible, modular platform that allows
-									</p>
-
-								</div>
-							</div>
-						</div>
-						<!-- .col-* -->
-						<div class="col-md-4 col-sm-6">
-
-							<div class="vertical-item text-center">
-								<div class="item-media">
-									<img src="<?php echo base_url('public/assets_for_frontend/images') ?>/service/service_icon_6-1.png" alt="">
-								</div>
-								<div class="item-content">
-									<h6>
-										<a href="service-single1.html">Branding</a>
-									</h6>
-
-									<p>
-										A solid brand strategy, logo and guidelines help you to get You recognized.
-									</p>
-
-								</div>
-							</div>
-						</div>
-						<!-- .col-* -->
+						</div></a>
+                        <?php } ?>
 						<div class="d-none d-lg-block divider-10"></div>
 					</div>
 				</div>

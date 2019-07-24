@@ -7,7 +7,7 @@
 <!--Navbar-->
 
 <!--haqqimizda -->
-<?php $this->load->view("$this->parent_folder/$this->sub_folder/services") ?>
+<?php $this->load->view("$this->parent_folder/$this->sub_folder/$page") ?>
 <!--haqqimizda -->
 
 
