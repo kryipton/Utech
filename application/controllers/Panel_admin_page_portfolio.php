@@ -1,4 +1,4 @@
- <?php
+<?php
      class Panel_admin_page_portfolio extends CI_Controller{
 
          public $parent_folder = "";
@@ -18,6 +18,7 @@
 
          public function index()
          {
+             $this->load->library("session");
              $this->load->view("$this->parent_folder/$this->sub_folder/whole_page");
          }
 

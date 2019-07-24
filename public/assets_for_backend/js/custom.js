@@ -31,7 +31,6 @@ $('.c_delete_portfolio_category').click(function () {
         .then((willDelete) => {
                 if (willDelete) {
                     // window.location.href = $data_url;
-                    $( "#dropzone" ).load(window.location.href + "#dropzone" );
                     $.post($data_url_portfolio_category, {}, function (response) {
                         $('.c_resfresh_portfolio_category').html(response);
 

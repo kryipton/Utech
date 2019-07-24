@@ -1,4 +1,4 @@
- <?php
+<?php
      class Panel_admin_page_home extends CI_Controller{
 
          public function __construct()
@@ -8,6 +8,7 @@
 
          public function index()
          {
+             $this->load->library("session");
              $this->load->view('backend/dashboard/whole_page');
          }
 
