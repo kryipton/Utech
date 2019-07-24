@@ -49,3 +49,6 @@
     float: left!important;
 }
 
+.c_cursor_pointer{
+    cursor: pointer;
+}
