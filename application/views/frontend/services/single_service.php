@@ -70,14 +70,20 @@
 								<p>
                                     <?php echo $single['service_desc'] ?>
                                 </p>
-								<div class="row c-gutter-60 c-mb-20 c-mb-lg-40">
+								<div  class="row c-gutter-60 c-mb-20 c-mb-lg-40">
                                     <?php if ($portfolio) { ?>
 									<div class="col-md-12 col-lg-0 left-part">
 										<div class="progress-service">
 											<h6 style="color: darkred">Islerimiz</h6>
                                             <?php foreach ($portfolio as $port) {?>
 
-											<p class="progress-title"><?php echo $port['name'] ?>     <?php echo $port['desc']?></p>
+											<p  class="progress-title"><?php echo $port['name'] ?> </p>
+
+                                                <div style="
+     overflow: hidden;
+     text-overflow: ellipsis;
+                                                max-height: 130px"><?php echo $port['desc']?></div>
+
 											<div class="progress">
 												<div>
 												</div>
@@ -87,18 +93,22 @@
 										</div>
 
 									</div>
+                                        <br><br>
                                     <?php } ?>
+
                                         <?php if ($single['service_advantages']) {?>
 									<div class="col-md-12 col-lg-6 right-part">
 										<h6 style="color: darkred" >Ustunluklerimiz</h6>
 									</div>
                                         <?php } ?>
-								</div>
+
 								<!-- .row -->
 
-								<p>
+                                </div>
+
 									<?php echo $single['service_advantages'] ?>
-								</p>
+
+
 
 							</div>
 							</div>

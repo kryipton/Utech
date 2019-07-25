@@ -30,16 +30,16 @@
 
 
                             <label>Servis Haqqında Məlumat</label>
-                                <textarea id="editor1" name="service_desc"></textarea>
+                                <textarea id="editor2" name="service_desc"></textarea>
                                 <br><br>
 
 
 
-                                <label>Ustunluklerimiz</label>
-                                <textarea id="editor1" name="service_advantages"></textarea>
+                                <label>Ustunluklerimiz(Bu Saheni bos buraxa bilersiniz)</label>
+                                <textarea id="editor3" name="service_advantages"></textarea>
                                 <br><br>
 
-                            <label>Portfolionun Kateqoriyası</label>
+                            <label>Portfolionun Kateqoriyası(Bu Saheni bos buraxa bilersiniz)</label>
                             <select name="service_port" class="form-control">
                                 <option value="">Sec</option>
                                 <?php foreach ($categories as $catg) {?>

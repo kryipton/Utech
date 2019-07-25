@@ -29,11 +29,11 @@
 
     public function AddServiceACT()
     {
-        $service_name = strip_tags($this->input->post('service_name'));
-        $service_title = strip_tags($this->input->post('service_title'));
-        $service_desc = strip_tags($this->input->post('service_desc'));
-        $service_port = strip_tags($this->input->post('service_port'));
-        $service_advantages = strip_tags($this->input->post('service_advantages'));
+        $service_name = ($this->input->post('service_name'));
+        $service_title = $this->input->post('service_title');
+        $service_desc = $this->input->post('service_desc');
+        $service_port = $this->input->post('service_port');
+        $service_advantages = $this->input->post('service_advantages');
 
         $config['upload_path'] = 'uploads/services';
         $config['allowed_types'] = 'jpg|jpeg|png|gif';
@@ -87,11 +87,11 @@
 
     public function UpdateServiceACT($id)
     {
-        $service_name = strip_tags($this->input->post('service_name'));
-        $service_title = strip_tags($this->input->post('service_title'));
-        $service_desc = strip_tags($this->input->post('service_desc'));
-        $service_port = strip_tags($this->input->post('service_port'));
-        $service_advantages = strip_tags($this->input->post('service_advantages'));
+        $service_name = ($this->input->post('service_name'));
+        $service_title = ($this->input->post('service_title'));
+        $service_desc = ($this->input->post('service_desc'));
+        $service_port = ($this->input->post('service_port'));
+        $service_advantages = ($this->input->post('service_advantages'));
 
         $config['upload_path'] = 'uploads/services';
         $config['allowed_types'] = 'jpg|jpeg|png|gif';

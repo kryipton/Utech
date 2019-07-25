@@ -29,39 +29,42 @@
 
 
                             <label>Servisin Basligi</label>
-                            <textarea id="editor1" name="service_title" value='<?php echo $service['service_title'] ?>'></textarea>
+                            <textarea id="editor1" name="service_title" ><?php echo $service['service_title'] ?></textarea>
                             <br><br>
 
 
 
                             <label>Servis Haqqında Məlumat</label>
-                            <textarea id="editor1" name="service_desc" value='<?php echo $service['service_desc'] ?>'></textarea>
+                            <textarea id="editor2" name="service_desc"><?php echo $service['service_desc'] ?></textarea>
                             <br><br>
 
 
 
-                            <label>Ustunluklerimiz</label>
-                            <textarea id="editor1" name="service_advantages" value='<?php echo $service['service_advantages'] ?>'></textarea>
+                            <label>Ustunluklerimiz(Bu Saheni bos buraxa bilersiniz)</label>
+                            <textarea id="editor3" name="service_advantages"><?php echo $service['service_advantages'] ?></textarea>
                             <br><br>
 
-                            <label>Portfolionun Kateqoriyası</label>
+                            <label>Portfolionun Kateqoriyası(Bu Saheni bos buraxa bilersiniz)</label>
                             <select name="service_port" class="form-control">
-                                <option value="">Sec</option>
+                                <option value="<?php echo $service['service_port'] ?>"><?php echo $service['service_port'] ?></option>
                                 <?php foreach ($categories as $catg) {?>
+                                    <?php if ($catg['name'] != $service['service_port']) { ?>
                                     <option value="<?php echo $catg["name"];?>">
                                         <?php echo $catg["name"];?>
                                     </option>
+                                    <?php } ?>
                                 <?php }?>
                             </select>
 
                             <br><br>
-
+                            <label>Sekil</label>
+                            <br>
                             <div class="image-upload">
                                 <label for="file-input">
-                                    Deyismek Ucun Vurun
-                                    <img src="<?php echo base_url('uploads/services/'.$service['service_img']) ?>" alt="sekil yuklenmedi" />
-                                </label>
 
+                                    <img src="<?php echo base_url('uploads/services/'.$service['service_img']) ?>" alt="sekil yuklenmedi" />
+                                    <p>Deyismek ucun klikleyin</p>
+                                </label>
                                 <input id="file-input" type="file" />
                             </div>
 
