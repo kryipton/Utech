@@ -14,7 +14,7 @@ class Contact extends CI_Controller{
         $this->includes_for_whole = "includes_for_whole_page";
 
         $this->load->model('Contact_Model');
-
+        date_default_timezone_set('Asia/Baku');
     }
 
     public function index(){
@@ -23,6 +23,8 @@ class Contact extends CI_Controller{
 
     public function send_message()
     {
+
+
         $name = strip_tags($this->input->post("name"));
         $mail = strip_tags($this->input->post("email"));
         $phone = strip_tags($this->input->post("mobile"));
@@ -50,10 +52,11 @@ class Contact extends CI_Controller{
 
             if (!empty($name) && !empty($mail) && !empty($phone) && !empty($msg)) {
                 $data = [
-                    "name" => $name,
-                    "mail " => $mail,
-                    "phone" => $phone,
-                    "message" => $msg
+                    "name"    => $name,
+                    "mail "   => $mail,
+                    "phone"   => $phone,
+                    "message" => $msg,
+                    "date"    => date('Y-m-d H:i:s',strtotime('now'))
                 ];
                 $this->Contact_Model->insert_message($data);
                 $config = Array(

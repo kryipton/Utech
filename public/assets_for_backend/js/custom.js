@@ -1,3 +1,4 @@
+
 // multiple switchler ucun kod
 isPrimary = {
     color             : '#8307bd',
@@ -13,8 +14,6 @@ elems.forEach(function(html) {
 
 
 });lems = Array.prototype.slice.call(document.querySelectorAll('.js-switch-dfcolor'));
-
-
 
 
 //silme islemine alert verme
@@ -58,7 +57,9 @@ $('.c_delete_portfolio_category').click(function () {
 
 
 //editoru initialize etmek ucun kod
-CKEDITOR.replace( 'editor1', {});
+if (CKEDITOR.replace( 'editor1', {})){
+    CKEDITOR.replace( 'editor1', {});
+}
 
 //dropzone nun dinamik sekilleri yuklemesi
 var name = "dropzone";
@@ -141,12 +142,39 @@ $(".isChoosed_portfolio").change(function () {
 
 });
 
+
+
 //butun elementleri secmek
+var idArray = [];
 var counter = 0;
 $('.c_check_all').click(function () {
 
     if (counter % 2 === 0){
         $(".isChoosed_portfolio").prop("checked" ,true);
+
+
+        $('.isChoosed_portfolio').each(function () {
+            idArray.push(this.id);
+        });
+
+        $(".isChoosed_portfolio").click(function () {
+
+            var isCheck = $(this).prop("checked");
+
+            if (isCheck == false){
+                var removeItem = $(this).attr("id");
+
+                idArray = jQuery.grep(idArray, function(value) {
+                    return value != removeItem;
+                });
+            }else{
+                idArray.push($(this).attr("id"))
+            }
+
+        });
+
+
+
     } else{
         $(".isChoosed_portfolio").prop("checked" ,false);
     }
@@ -195,10 +223,77 @@ $('.c_all_delete_portfolio').click(function () {
 
                     })
                 }else{
-                    window.location.href = $data_url;
+
+                    $.post($data_url, {data: idArray}, function (response) {
+
+                        $('.c_resfresh_portfolio_category').html(response);
+
+                        // multiple switchler ucun kod
+                        isPrimary = {
+                            color             : '#8307bd',
+                            className         : 'switchery'
+
+                        };
+
+                        var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+
+                        elems.forEach(function(html) {
+
+                            var switchery = new Switchery(html, isPrimary);
+
+
+                        });lems = Array.prototype.slice.call(document.querySelectorAll('.js-switch-dfcolor'));
+
+
+                    })
+
                 }
 
             }
         });
     event.preventDefault();
 });
+
+
+
+//tablede switche basanda rowunn renginin deyismesi
+$(".isChoosed_portfolio").click(function () {
+
+    if ($(this).data("cond") == true){
+        $(this)
+            .closest( ".change_color" )
+            .css("background-color", "#FFFF66");
+        $(this).data("cond", false);
+    } else{
+
+        $(this)
+            .closest( ".change_color" )
+            .css("background-color", "white");
+        $(this).data("cond", true);
+    }
+
+});
+
+
+//tablede switche basanda butun rowlarin renginin deyismesi
+$(".c_check_all").click(function () {
+
+    if ($(this).data("cond") == true){
+        $(".change_color").css("background-color", "#FFFF66");
+        $(this).data("cond", false);
+
+        $(".isChoosed_portfolio").data("cond", false);
+
+
+    } else{
+        $(".change_color").css("background-color", "white");
+        $(this).data("cond", true);
+
+        $(".isChoosed_portfolio").data("cond", true);
+
+    }
+
+});
+
+
+

@@ -6314,7 +6314,7 @@ img {
 /* boxed layout */
 #box_wrapper,
 #canvas {
-	overflow: hidden;
+	/*overflow: hidden;*/
 	position: relative;
 }
 
