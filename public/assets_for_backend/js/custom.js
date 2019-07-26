@@ -60,6 +60,12 @@ $('.c_delete_portfolio_category').click(function () {
 if (CKEDITOR.replace( 'editor1', {})){
     CKEDITOR.replace( 'editor1', {});
 }
+if (CKEDITOR.replace( 'editor2', {})){
+    CKEDITOR.replace( 'editor2', {});
+}
+if (CKEDITOR.replace( 'editor3', {})){
+    CKEDITOR.replace( 'editor3', {});
+}
 
 //dropzone nun dinamik sekilleri yuklemesi
 var name = "dropzone";

@@ -28,7 +28,9 @@
 
 							<div class="vertical-item text-center">
 								<div class="item-media">
-									<img src="<?php echo base_url('uploads/services/'.$service['service_img']) ?>" alt="">
+									<img style="max-width: 500px;
+                                                width: 320px;
+                                                height: 180px"  src="<?php echo base_url('uploads/services/'.$service['service_img']) ?>" alt="">
 								</div>
 								<div class="item-content">
 									<h6>
