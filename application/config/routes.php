@@ -190,7 +190,39 @@ $route['utech_admin_panel_services_sil/(.*)'] = 'Panel_admin_page_services/Delet
 //-------------------------------Servis Hissesi-------------------
 
 
+//-------------------------------emekdasliq Hissesi-------------------
+
+
+$route['utech_admin_panel_partners'] = 'Panel_admin_page_partners/index';
+$route['utech_admin_panel_partners_add'] = 'Panel_admin_page_partners/partners_add';
+$route['utech_admin_panel_partners_add_act'] = 'Panel_admin_page_partners/partners_add_act';
+$route['utech_admin_panel_partners_update/(.*)'] = 'Panel_admin_page_partners/partners_update/$1';
+$route['utech_admin_panel_partners_update_act/(.*)'] = 'Panel_admin_page_partners/partners_update_act/$1';
+$route['utech_admin_panel_partners_delete/(.*)'] = 'Panel_admin_page_partners/partners_delete/$1';
+
+
+
+
+
+
+
+//-------------------------------emekdasliq Hissesi-------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //===================================Admin Panel linkleri===================
+
 
 
 
