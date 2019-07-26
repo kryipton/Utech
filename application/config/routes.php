@@ -56,6 +56,30 @@ $route['translate_uri_dashes'] = FALSE;
 //===================================Admin Panel linkleri===================
 
 
+//---------------------------------admin yenileme hissesi-----------------------------
+
+$route['utech_admin_panel_admin_update'] = 'Panel_admin_page_admin';
+
+$route['utech_admin_panel_admin_update_act'] = 'Panel_admin_page_admin/admin_update';
+
+//---------------------------------admin yenileme hissesi-----------------------------
+
+
+
+
+//---------------------------------Login hissesi-----------------------------
+
+$route['utech_admin_panel_login_page'] = 'Panel_admin_page_login';
+
+$route['utech_admin_panel_login_page_act'] = 'Panel_admin_page_login/login_act';
+
+$route['utech_admin_panel_login_page_logout'] = 'Panel_admin_page_login/logout';
+
+
+//---------------------------------Login hissesi-----------------------------
+
+
+
 //portfolio hissesi
 $route['utech_admin_panel_portfolio'] = 'Panel_admin_page_portfolio';
 
@@ -151,6 +175,19 @@ $route['utech_admin_panel_message_delete/(:any)'] = 'Panel_admin_page_contact/de
 $route['utech_admin_panel_message_single/(:any)'] = 'Panel_admin_page_contact/single_message/$1';
 //-------------------- contact hissesi -----------------------
 
+
+
+
+//-------------------------------Servis Hissesi-------------------
+
+$route['utech_admin_panel_services'] = 'Panel_admin_page_services/index';
+$route['utech_admin_panel_services_elave_et'] = 'Panel_admin_page_services/AddService';
+$route['utech_admin_panel_services_elave_etme'] = 'Panel_admin_page_services/AddServiceAct';
+$route['utech_admin_panel_services_yenile/(.*)'] = 'Panel_admin_page_services/UpdateService/$1';
+$route['utech_admin_panel_services_yenileme/(.*)'] = 'Panel_admin_page_services/UpdateServiceAct/$1';
+$route['utech_admin_panel_services_sil/(.*)'] = 'Panel_admin_page_services/DeleteService/$1';
+
+//-------------------------------Servis Hissesi-------------------
 
 
 //===================================Admin Panel linkleri===================

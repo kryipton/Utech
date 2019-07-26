@@ -1,4 +1,4 @@
- <?php
+<?php
  class Portfolio_model extends CI_Model {
 
      public function __construct()
@@ -33,6 +33,10 @@
 //     portfolio listinin hissesi
      public function get_portfolio_list(){
          return $this->db->order_by("id", "DESC")->get("portfolio")->result_array();
+     }
+
+     public function get_portfolio_list_e($name){
+         return $this->db->where('category_name',$name)->order_by("id", "DESC")->get("portfolio")->result_array();
      }
 
      public function get_portfolio_list_single($where){

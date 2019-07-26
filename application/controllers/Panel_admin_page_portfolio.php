@@ -1,4 +1,4 @@
- <?php
+<?php
      class Panel_admin_page_portfolio extends CI_Controller{
 
          public $parent_folder = "";
@@ -14,10 +14,18 @@
 
 
              $this->load->model("Portfolio_model");
+
+
+             if (!$this->session->userdata("session")){
+                 redirect(base_url("utech_admin_panel_login_page"));
+             }
+
+
          }
 
          public function index()
          {
+             $this->load->library("session");
              $this->load->view("$this->parent_folder/$this->sub_folder/whole_page");
          }
 
