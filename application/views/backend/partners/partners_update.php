@@ -25,7 +25,7 @@
                             <br><br>
 
 
-                            <button type="submit" class="btn btn-primary">Əlavə Et</button>
+                            <button type="submit" class="btn btn-primary">Yenilə</button>
                         </form>
 
 

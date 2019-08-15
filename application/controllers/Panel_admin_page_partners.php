@@ -47,7 +47,8 @@
              $this->Partners_model->AddPartner($data);
              redirect(base_url("utech_admin_panel_partners"));
          } else {
-             echo "link yuklenmedi";
+             $this->session->set_flashdata("error", "Boşluq Buraxmayın!");
+             redirect(base_url("utech_admin_panel_partners_add"));
          }
 
 
@@ -88,7 +89,9 @@
              $this->Partners_model->UpdatePartner($data,$id);
              redirect(base_url("utech_admin_panel_partners"));
          } else {
-             echo "link yuklenmedi";
+             $this->session->set_flashdata("error", "Boşluq Buraxmayın!");
+             redirect(base_url("utech_admin_panel_partners_update/$id"));
+
          }
 
      }
