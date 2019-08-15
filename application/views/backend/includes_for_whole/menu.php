@@ -39,7 +39,7 @@
 
             <div class="user-info-wrapper sm">
                 <div class="profile-wrapper sm">
-                    <img src="<?php echo base_url("public/assets_for_backend")?>/img/profiles/avatar.png" alt="" data-src="<?php echo base_url("public/assets_for_backend")?>/img/profiles/avatar.png" data-src-retina="<?php echo base_url("public/assets_for_backend")?>/img/profiles/avatar2x.png" width="69" height="69" />
+                    <img src="<?php echo base_url("public/assets_for_backend")?>/img/profiles/avatar.png" alt="" data-src="<?php echo base_url("public/assets_for_backend")?>/img/profiles/avatar.png" data-src-retina="<?php echo base_url("public/assets_for_backend")?>/img/profiles/avatar.png" width="69" height="69" />
                 </div>
                 <div class="user-info sm">
                     <div class="username" style="margin-top: 12px;">Admin

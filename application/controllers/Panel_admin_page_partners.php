@@ -25,7 +25,7 @@
 
      public function partners_add_act()
      {
-       $link = $this->input->post("link");
+         $link = $this->input->post("link");
 
          $config['upload_path'] = 'uploads/partners';
          $config['allowed_types'] = 'jpg|jpeg|png|gif';
@@ -34,24 +34,22 @@
          $this->load->library('upload', $config);
          $this->upload->initialize($config);
 
-         if ($this->upload->do_upload('img')) {
-             $uploadData = $this->upload->data();
-             $image = $uploadData['file_name'];
+         $is_upload = $this->upload->do_upload("img");
+         $uploadData = $this->upload->data();
+         $image = $uploadData['file_name'];
 
-             if (!empty($link)) {
+         if (!empty($link)) {
 
-                 $data = array(
-                     'link' => $link,
-                     'img'  => $image
-                 );
-                 $this->Partners_model->AddPartner($data);
-                 redirect(base_url("utech_admin_panel_partners"));
-             } else {
-                 echo "link yuklenmedi";
-             }
-         }else{
-echo "sekil yuklenmedi";
+             $data = array(
+                 'link' => $link,
+                 'img'  => ($is_upload) ? $image : "default.png",
+             );
+             $this->Partners_model->AddPartner($data);
+             redirect(base_url("utech_admin_panel_partners"));
+         } else {
+             echo "link yuklenmedi";
          }
+
 
      }
 
@@ -68,6 +66,8 @@ echo "sekil yuklenmedi";
      {
          $link = $this->input->post("link");
 
+         $partner = $this->Partners_model->Partners_update($id);
+
          $config['upload_path'] = 'uploads/partners';
          $config['allowed_types'] = 'jpg|jpeg|png|gif';
          $config['file_name'] = $_FILES['img']['name'];
@@ -75,24 +75,22 @@ echo "sekil yuklenmedi";
          $this->load->library('upload', $config);
          $this->upload->initialize($config);
 
-         if ($this->upload->do_upload('img')) {
-             $uploadData = $this->upload->data();
-             $image = $uploadData['file_name'];
+         $is_upload = $this->upload->do_upload("img");
+         $uploadData = $this->upload->data();
+         $image = $uploadData['file_name'];
 
-             if (!empty($link)) {
+         if (!empty($link)) {
 
-                 $data = array(
-                     'link' => $link,
-                     'img'  => $image
-                 );
-                 $this->Partners_model->UpdatePartner($data,$id);
-                 redirect(base_url("utech_admin_panel_partners"));
-             } else {
-                 echo "link yuklenmedi";
-             }
-         }else{
-             echo "sekil yuklenmedi";
+             $data = array(
+                 'link' => $link,
+                 'img'  => ($is_upload) ? $image : $partner["img"],
+             );
+             $this->Partners_model->UpdatePartner($data,$id);
+             redirect(base_url("utech_admin_panel_partners"));
+         } else {
+             echo "link yuklenmedi";
          }
+
      }
 
      public function partners_delete($id)

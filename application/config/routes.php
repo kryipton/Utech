@@ -201,11 +201,6 @@ $route['utech_admin_panel_partners_update_act/(.*)'] = 'Panel_admin_page_partner
 $route['utech_admin_panel_partners_delete/(.*)'] = 'Panel_admin_page_partners/partners_delete/$1';
 
 
-
-
-
-
-
 //-------------------------------emekdasliq Hissesi-------------------
 
 
@@ -235,6 +230,7 @@ $route['utech_admin_panel_partners_delete/(.*)'] = 'Panel_admin_page_partners/pa
 
 //about hissesi
 $route['about'] = 'About/index';
+$route['why_us'] = 'Why_us/index';
 
 
 //portfolio hissesi

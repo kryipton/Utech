@@ -94,9 +94,20 @@
          }
 
          public function portfolio_category_list_delete($id){
-             $this->Portfolio_model->portfolio_category_delete(array(
+
+             $category = $this->Portfolio_model->get_portfolio_category_single(array(
                  "id" => $id,
              ));
+
+             $where1 = array(
+                 "id" => $id,
+             );
+
+             $where2 = array(
+                 "category_name" => $category["name"],
+             );
+
+             $this->Portfolio_model->portfolio_category_delete($where1,$where2);
 
              $data["portfolio_categories"] = $this->Portfolio_model->get_portfolio_category();
              $this->session->set_flashdata("alert", "Məlumat Silindi!");

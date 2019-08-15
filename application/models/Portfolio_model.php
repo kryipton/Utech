@@ -23,8 +23,9 @@
          $this->db->where($where)->update("portfolio_category", $data);
      }
 
-     public function portfolio_category_delete($where){
-         $this->db->where($where)->delete("portfolio_category");
+     public function portfolio_category_delete($where1, $where2){
+         $this->db->where($where1)->delete("portfolio_category");
+         $this->db->where($where2)->delete("portfolio");
      }
 //     portfolio kateqoriya hissesi
 
