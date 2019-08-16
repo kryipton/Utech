@@ -1,5 +1,5 @@
 <?php
-class Partners extends CI_Controller{
+class Why_us extends CI_Controller{
 
     public $parent_folder = "";
     public $sub_folder = "";
@@ -9,14 +9,12 @@ class Partners extends CI_Controller{
     {
         parent::__construct();
         $this->parent_folder = "frontend";
-        $this->sub_folder = "partners";
+        $this->sub_folder = "why_us";
         $this->includes_for_whole = "includes_for_whole_page";
-        $this->load->model("Partners_model");
     }
 
     public function index(){
-        $data["partners"] = $this->Partners_model->GetPartners();
-        $this->load->view("$this->parent_folder/$this->sub_folder/whole_page", $data);
+        $this->load->view("$this->parent_folder/$this->sub_folder/whole_page");
     }
 
 

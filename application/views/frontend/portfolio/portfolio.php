@@ -70,7 +70,10 @@
 
                                         <div class="vertical-item text-center ls ms">
                                             <div class="item-media">
-                                                <img class="c_img_cover" width="370px" height="246px" src="<?php echo base_url("uploads/portfolio/$gallery") ?>" alt="">
+                                                <img class="c_img_cover" width="370px" height="246px" src="<?php
+
+
+                                                echo base_url("uploads/portfolio/$gallery") ?>" alt="">
                                                 <div class="media-links">
                                                 </div>
                                             </div>

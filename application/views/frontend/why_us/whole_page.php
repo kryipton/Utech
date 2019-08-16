@@ -1,3 +1,4 @@
+
 <!--header-->
 <?php $this->load->view("$this->parent_folder/$this->includes_for_whole/header") ?>
 <!--header-->
@@ -7,7 +8,7 @@
 <!--Navbar-->
 
 <!--haqqimizda -->
-<?php $this->load->view("$this->parent_folder/$this->sub_folder/$page") ?>
+<?php $this->load->view("$this->parent_folder/$this->sub_folder/about") ?>
 <!--haqqimizda -->
 
 

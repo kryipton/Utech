@@ -31,7 +31,6 @@ $('.c_delete_portfolio_category').click(function () {
         .then((willDelete) => {
                 if (willDelete) {
                     // window.location.href = $data_url;
-                    $( "#dropzone" ).load(window.location.href + "#dropzone" );
                     $.post($data_url_portfolio_category, {}, function (response) {
                         $('.c_resfresh_portfolio_category').html(response);
 
@@ -60,6 +59,12 @@ $('.c_delete_portfolio_category').click(function () {
 //editoru initialize etmek ucun kod
 if (CKEDITOR.replace( 'editor1', {})){
     CKEDITOR.replace( 'editor1', {});
+}
+if (CKEDITOR.replace( 'editor2', {})){
+    CKEDITOR.replace( 'editor2', {});
+}
+if (CKEDITOR.replace( 'editor3', {})){
+    CKEDITOR.replace( 'editor3', {});
 }
 
 //dropzone nun dinamik sekilleri yuklemesi
@@ -295,3 +300,6 @@ $(".c_check_all").click(function () {
     }
 
 });
+
+
+

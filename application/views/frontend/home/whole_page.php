@@ -31,11 +31,6 @@
 <!--is strategiyasi-->
 
 
-<!--portfolio-->
-<?php $this->load->view("$this->parent_folder/$this->sub_folder/portfolio") ?>
-<!--portfolio-->
-
-
 <!--elaqe ve location hissesi-->
 <?php $this->load->view("$this->parent_folder/$this->sub_folder/contact") ?>
 <!--elaqe ve location hissesi-->

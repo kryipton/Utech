@@ -42,7 +42,7 @@
                                                 <a href="<?php echo base_url("about")?>">Biz Kimik?</a>
                                             </li>
                                             <li>
-                                                <a href="">Niyə Biz?</a>
+                                                <a href="<?php echo base_url("why_us")?>">Niyə Biz?</a>
                                             </li>
                                         </ul>
                                     </li>

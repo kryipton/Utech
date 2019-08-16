@@ -25,45 +25,17 @@
 				<div class="container">
 					<div class="divider-80 d-none d-lg-block"></div>
 					<div class="row c-mt-30">
-						<div class="col-6 col-md-3  animate" data-animation="fadeInUp">
-							<img src="<?php echo base_url('public/assets_for_frontend/images') ?>/partners/01.jpg" alt="">
-						</div>
-						<div class="col-6 col-md-3  animate" data-animation="fadeInUp">
-							<img src="<?php echo base_url('public/assets_for_frontend/images') ?>/partners/02.jpg" alt="">
-						</div>
-						<div class="col-6 col-md-3  animate" data-animation="fadeInUp">
-							<img src="<?php echo base_url('public/assets_for_frontend/images') ?>/partners/03.jpg" alt="">
-						</div>
-						<div class="col-6 col-md-3  animate" data-animation="fadeInUp">
-							<img src="<?php echo base_url('public/assets_for_frontend/images') ?>/partners/04.jpg" alt="">
-						</div>
 
-						<div class="col-6 col-md-3  animate" data-animation="fadeInUp">
-							<img src="<?php echo base_url('public/assets_for_frontend/images') ?>/partners/05.jpg" alt="">
-						</div>
-						<div class="col-6 col-md-3  animate" data-animation="fadeInUp">
-							<img src="<?php echo base_url('public/assets_for_frontend/images') ?>/partners/06.jpg" alt="">
-						</div>
-						<div class="col-6 col-md-3  animate" data-animation="fadeInUp">
-							<img src="<?php echo base_url('public/assets_for_frontend/images') ?>/partners/07.jpg" alt="">
-						</div>
-						<div class="col-6 col-md-3  animate" data-animation="fadeInUp">
-							<img src="<?php echo base_url('public/assets_for_frontend/images') ?>/partners/08.jpg" alt="">
-						</div>
+                        <?php foreach ($partners as $partner) { ?>
+                            <div class="c2_container" style="background: url(<?php echo base_url("uploads/partners/$partner[img]")?>);" data-link="<?php echo $partner["link"] ?>">
 
-						<div class="col-6 col-md-3  animate" data-animation="fadeInUp">
-							<img src="<?php echo base_url('public/assets_for_frontend/images') ?>/partners/09.jpg" alt="">
-						</div>
-						<div class="col-6 col-md-3  animate" data-animation="fadeInUp">
-							<img src="<?php echo base_url('public/assets_for_frontend/images') ?>/partners/10.jpg" alt="">
-						</div>
-						<div class="col-6 col-md-3  animate" data-animation="fadeInUp">
-							<img src="<?php echo base_url('public/assets_for_frontend/images') ?>/partners/11.jpg" alt="">
-						</div>
-						<div class="col-6 col-md-3  animate" data-animation="fadeInUp">
-							<img src="<?php echo base_url('public/assets_for_frontend/images') ?>/partners/12.jpg" alt="">
-						</div>
-					</div>
+                                <div class="c2_overlay"></div>
+                                <div class="c_span"><?php echo $partner["link"] ?></div>
+
+                            </div>
+                        <?php }?>
+
+                    </div>
 					<div class="divider-75 d-none d-lg-block"></div>
 				</div>
 			</section>
